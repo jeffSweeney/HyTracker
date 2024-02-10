@@ -9,40 +9,46 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Image("ht_logo")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 150, height: 150)
-            
-            VStack(spacing: 12) {
-                Text("HyTracker")
-                    .font(.largeTitle)
-                    .fontDesign(.serif)
+        NavigationStack {
+            VStack {
+                Spacer()
                 
-                Text("stay on track")
-                    .font(.title3)
-            }
-            
-            Spacer()
-            
-            HStack(spacing: 32) {
-                Button(action: {
-                    print("DEBUG: Tapped LOG IN")
-                }, label: { WelcomeButton(label: "LOG IN") })
+                Image("ht_logo")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 150, height: 150)
                 
-                Button(action: {
-                    print("DEBUG: Tapped SIGN UP")
-                }, label: { WelcomeButton(label: "SIGN UP") })
+                VStack(spacing: 12) {
+                    Text("HyTracker")
+                        .font(.largeTitle)
+                        .fontDesign(.serif)
+                    
+                    Text("stay on track")
+                        .font(.title3)
+                }
+                
+                Spacer()
+                
+                HStack(spacing: 32) {
+                    NavigationLink {
+                        Text("LOG IN")
+                    } label: {
+                        WelcomeButton(label: "LOG IN")
+                    }
+                    
+                    NavigationLink {
+                        Text("SIGN UP")
+                    } label: {
+                        WelcomeButton(label: "SIGN UP")
+                    }
+                }
+                .foregroundStyle(.black)
+                .padding(.vertical)
             }
-            .foregroundStyle(.black)
-            .padding(.vertical)
-        }
-        .fontDesign(.serif)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .fontDesign(.serif)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
+        }
     }
 }
 
