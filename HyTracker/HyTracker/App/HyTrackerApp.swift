@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct HyTrackerApp: App {
+    init() {
+        // Exclusively light mode for now
+        UIWindow.appearance().overrideUserInterfaceStyle = .light
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
