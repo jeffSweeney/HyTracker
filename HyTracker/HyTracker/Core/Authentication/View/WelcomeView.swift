@@ -42,9 +42,7 @@ struct WelcomeView: View {
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LinearGradient(gradient: Gradient(colors: [.white, .blue]),
-                                   startPoint: .top,
-                                   endPoint: .bottom))
+        .modifier(HyTrackerGradient())
     }
 }
 
