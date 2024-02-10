@@ -51,7 +51,10 @@
 		E03E93DD2B7808C700FF01D0 /* HyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				E03E93DE2B7808C700FF01D0 /* HyTrackerApp.swift */,
+				E03E93EF2B7808E900FF01D0 /* App */,
+				E03E93EE2B7808E800FF01D0 /* Core */,
+				E03E93ED2B7808E600FF01D0 /* Models */,
+				E03E93EC2B7808E200FF01D0 /* Services */,
 				E03E93E02B7808C700FF01D0 /* ContentView.swift */,
 				E03E93E22B7808C800FF01D0 /* Assets.xcassets */,
 				E03E93E42B7808C800FF01D0 /* Preview Content */,
@@ -65,6 +68,35 @@
 				E03E93E52B7808C800FF01D0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E03E93EC2B7808E200FF01D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E03E93ED2B7808E600FF01D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E03E93EE2B7808E800FF01D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E03E93EF2B7808E900FF01D0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E03E93DE2B7808C700FF01D0 /* HyTrackerApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
