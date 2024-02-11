@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State private var startDate: Date? = nil
-    @State private var eligibleWorkdays: [Weekday] = []
+    @State private var eligibleWorkdays: Set<Weekday> = []
     @State private var requiredDays: Int? = nil
     
     // Binding date allows us to present our datepicker sheet an let our initial startDate be nil
@@ -17,6 +17,8 @@ struct OnboardingView: View {
     @State private var bindingDate: Date = .now
     
     @State private var showingDateSheet = false
+    @State private var showingWorkdaySheet = false
+    @State private var showingRequirementSheet = false
     
     var body: some View {
         VStack {
@@ -42,9 +44,21 @@ struct OnboardingView: View {
                     DateSelectorSheet(selectedDate: $bindingDate)
                 }
                 
-                InputComponentView(component: .eligibleWorkdays(eligibleWorkdays))
+                Button(action: { showingWorkdaySheet = true }, label: {
+                    InputComponentView(component: .eligibleWorkdays(eligibleWorkdays))
+                        .foregroundStyle(.black)
+                })
+                .sheet(isPresented: $showingWorkdaySheet, onDismiss: {  }) {
+                    EligibleWorkdaySheet(eligibleWorkdays: $eligibleWorkdays)
+                }
                 
-                InputComponentView(component: .requiredDays(requiredDays))
+                Button(action: { showingRequirementSheet = true }) {
+                    InputComponentView(component: .requiredDays(requiredDays))
+                        .foregroundStyle(.black)
+                }
+                .sheet(isPresented: $showingRequirementSheet, onDismiss: {  }) {
+                    WeeklyRequirementsSheet()
+                }
             }
             .padding()
             

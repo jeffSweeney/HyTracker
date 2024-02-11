@@ -40,16 +40,7 @@ struct DateSelectorSheet: View {
                 Button(action: {
                     dismiss()
                 }, label: {
-                    Text("DONE")
-                        .font(.headline)
-                        .foregroundStyle(.black)
-                        .frame(width: 300, height: 40)
-                        .overlay {
-                            Capsule()
-                                .stroke(lineWidth: 2)
-                                .foregroundStyle(.black)
-                        }
-                        .padding()
+                    SheetDoneLabel()
                 })
             }
             .navigationTitle("Start Date Selection")
@@ -60,7 +51,7 @@ struct DateSelectorSheet: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
-                        // Effectively a "cancel". Set ineligible date to indicate no selection made.
+                        // Cancel: Set ineligible date to indicate no selection made.
                         selectedDate = Date.distantFuture
                         dismiss()
                     }, label: {

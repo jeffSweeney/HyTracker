@@ -22,6 +22,9 @@
 		E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */; };
 		E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94112B792E7800FF01D0 /* InputComponent.swift */; };
 		E03E94142B79564A00FF01D0 /* DateSelectorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94132B79564A00FF01D0 /* DateSelectorSheet.swift */; };
+		E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94162B797A0200FF01D0 /* EligibleWorkdaySheet.swift */; };
+		E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94182B797A4500FF01D0 /* WeeklyRequirementsSheet.swift */; };
+		E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+HyTracker.swift"; sourceTree = "<group>"; };
 		E03E94112B792E7800FF01D0 /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		E03E94132B79564A00FF01D0 /* DateSelectorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorSheet.swift; sourceTree = "<group>"; };
+		E03E94162B797A0200FF01D0 /* EligibleWorkdaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibleWorkdaySheet.swift; sourceTree = "<group>"; };
+		E03E94182B797A4500FF01D0 /* WeeklyRequirementsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRequirementsSheet.swift; sourceTree = "<group>"; };
+		E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDoneLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +203,9 @@
 		E03E94062B79173F00FF01D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E03E94132B79564A00FF01D0 /* DateSelectorSheet.swift */,
 				E03E94042B79032100FF01D0 /* OnboardingView.swift */,
 				E03E940B2B7923EA00FF01D0 /* Components */,
+				E03E94152B79786A00FF01D0 /* Sheets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E940C2B79240200FF01D0 /* InputComponentView.swift */,
+				E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,6 +241,16 @@
 				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E03E94152B79786A00FF01D0 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				E03E94132B79564A00FF01D0 /* DateSelectorSheet.swift */,
+				E03E94162B797A0200FF01D0 /* EligibleWorkdaySheet.swift */,
+				E03E94182B797A4500FF01D0 /* WeeklyRequirementsSheet.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,14 +324,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
+				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
+				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
 				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
 				E03E94142B79564A00FF01D0 /* DateSelectorSheet.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
+				E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,
 				E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */,
 				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,

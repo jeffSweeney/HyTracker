@@ -9,7 +9,7 @@ import Foundation
 
 enum InputComponent {
     case startDate(Date?)
-    case eligibleWorkdays([Weekday])
+    case eligibleWorkdays(Set<Weekday>)
     case requiredDays(Int?)
     
     var hasInput: Bool {
@@ -31,7 +31,7 @@ enum InputComponent {
             if workdays.isEmpty {
                 return "Select Eligible Workdays"
             } else {
-                return workdays.map{$0.label}.joined(separator: ", ")
+                return workdays.sorted{$0.rawValue < $1.rawValue}.map{$0.label}.joined(separator: ", ")
             }
         case .requiredDays(let numberOfDays):
             if let numberOfDays = numberOfDays {
