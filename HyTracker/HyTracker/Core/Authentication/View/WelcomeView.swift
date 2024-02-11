@@ -31,13 +31,13 @@ struct WelcomeView: View {
                 
                 HStack(spacing: 32) {
                     NavigationLink {
-                        Text("LOG IN")
+                        LoginView()
                     } label: {
                         WelcomeButton(label: "LOG IN")
                     }
                     
                     NavigationLink {
-                        Text("SIGN UP")
+                        SignupView()
                     } label: {
                         WelcomeButton(label: "SIGN UP")
                     }
@@ -47,7 +47,7 @@ struct WelcomeView: View {
             }
             .fontDesign(.serif)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(HyTrackerGradient())
+            .modifier(HyTrackerGradient())
         }
     }
 }

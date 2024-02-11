@@ -13,6 +13,9 @@
 		E03E93E62B7808C800FF01D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03E93E52B7808C800FF01D0 /* Preview Assets.xcassets */; };
 		E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93F62B78105900FF01D0 /* WelcomeView.swift */; };
 		E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93F92B78220400FF01D0 /* HyTrackerGradient.swift */; };
+		E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93FD2B782D4300FF01D0 /* LoginView.swift */; };
+		E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93FF2B78457A00FF01D0 /* SignupView.swift */; };
+		E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		E03E93E52B7808C800FF01D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E03E93F62B78105900FF01D0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E03E93F92B78220400FF01D0 /* HyTrackerGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyTrackerGradient.swift; sourceTree = "<group>"; };
+		E03E93FD2B782D4300FF01D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E03E93FF2B78457A00FF01D0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTFComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +147,10 @@
 		E03E93F42B78104100FF01D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E03E94012B7856EA00FF01D0 /* Components */,
+				E03E93FD2B782D4300FF01D0 /* LoginView.swift */,
 				E03E93F62B78105900FF01D0 /* WelcomeView.swift */,
+				E03E93FF2B78457A00FF01D0 /* SignupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +168,14 @@
 				E03E93F92B78220400FF01D0 /* HyTrackerGradient.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E03E94012B7856EA00FF01D0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
+				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,
+				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
