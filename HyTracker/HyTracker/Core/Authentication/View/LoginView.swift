@@ -11,6 +11,8 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
             Image("ht_logo")
@@ -44,9 +46,21 @@ struct LoginView: View {
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "xmark")
+                })
+            }
+        }
     }
 }
 
 #Preview {
-    LoginView()
+    NavigationStack {
+        LoginView()
+    }
 }
