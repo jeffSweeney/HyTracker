@@ -10,14 +10,14 @@ import SwiftUI
 struct AuthenticationTFComponent: View {
     enum Component {
         case email
+        case fullname
         case password
         
         var label: String {
             switch self {
-            case .email:
-                "Email"
-            case .password:
-                "Password"
+            case .email: "Email"
+            case .fullname: "Fullname"
+            case .password: "Password"
             }
         }
     }
@@ -34,11 +34,13 @@ struct AuthenticationTFComponent: View {
                 if component == .password && !showingPassword {
                     SecureField(component.label, text: captureInput)
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
                         .padding(.bottom, 5)
                         .focused($inputFocused)
                 } else {
                     TextField(component.label, text: captureInput)
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
                         .padding(.bottom, 5)
                         .focused($inputFocused)
                 }
