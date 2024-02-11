@@ -16,6 +16,11 @@
 		E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93FD2B782D4300FF01D0 /* LoginView.swift */; };
 		E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E93FF2B78457A00FF01D0 /* SignupView.swift */; };
 		E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */; };
+		E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94042B79032100FF01D0 /* OnboardingView.swift */; };
+		E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94092B79176B00FF01D0 /* Weekday.swift */; };
+		E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E940C2B79240200FF01D0 /* InputComponentView.swift */; };
+		E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */; };
+		E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94112B792E7800FF01D0 /* InputComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		E03E93FD2B782D4300FF01D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E03E93FF2B78457A00FF01D0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTFComponent.swift; sourceTree = "<group>"; };
+		E03E94042B79032100FF01D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		E03E94092B79176B00FF01D0 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		E03E940C2B79240200FF01D0 /* InputComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponentView.swift; sourceTree = "<group>"; };
+		E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+HyTracker.swift"; sourceTree = "<group>"; };
+		E03E94112B792E7800FF01D0 /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 			children = (
 				E03E93EF2B7808E900FF01D0 /* App */,
 				E03E93EE2B7808E800FF01D0 /* Core */,
+				E03E940E2B7925CF00FF01D0 /* Extensions */,
 				E03E93ED2B7808E600FF01D0 /* Models */,
 				E03E93EC2B7808E200FF01D0 /* Services */,
 				E03E93F82B78219300FF01D0 /* Utils */,
@@ -132,6 +143,9 @@
 		E03E93F22B78094500FF01D0 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				E03E94072B79174300FF01D0 /* Model */,
+				E03E94062B79173F00FF01D0 /* View */,
+				E03E94082B79174700FF01D0 /* ViewModel */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -176,6 +190,47 @@
 				E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E03E94062B79173F00FF01D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E03E94042B79032100FF01D0 /* OnboardingView.swift */,
+				E03E940B2B7923EA00FF01D0 /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03E94072B79174300FF01D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E03E94112B792E7800FF01D0 /* InputComponent.swift */,
+				E03E94092B79176B00FF01D0 /* Weekday.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E03E94082B79174700FF01D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E03E940B2B7923EA00FF01D0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E03E940C2B79240200FF01D0 /* InputComponentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E03E940E2B7925CF00FF01D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,11 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
+				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
+				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
+				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,
+				E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */,
 				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 			);
