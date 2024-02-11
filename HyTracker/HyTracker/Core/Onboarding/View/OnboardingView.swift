@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @State private var startDate: Date? = Date()
-    @State private var eligibleWorkdays: [Weekday] = [.tuesday, .wednesday, .thursday]
-    @State private var requiredDays: Int? = 2
+    @State private var startDate: Date? = nil
+    @State private var eligibleWorkdays: [Weekday] = []
+    @State private var requiredDays: Int? = nil
+    
+    // Binding date allows us to present our datepicker sheet an let our initial startDate be nil
+    // TODO: Is there a better way to handle this?
+    @State private var bindingDate: Date = .now
+    
+    @State private var showingDateSheet = false
     
     var body: some View {
         VStack {
@@ -28,7 +34,13 @@ struct OnboardingView: View {
                 .padding([.horizontal, .bottom], 24)
             
             VStack(alignment: .leading, spacing: 24) {
-                InputComponentView(component: .startDate(startDate))
+                Button(action: { showingDateSheet = true }, label: {
+                    InputComponentView(component: .startDate(startDate))
+                        .foregroundStyle(.black)
+                })
+                .sheet(isPresented: $showingDateSheet, onDismiss: { processDateSelectorSheet() }) {
+                    DateSelectorSheet(selectedDate: $bindingDate)
+                }
                 
                 InputComponentView(component: .eligibleWorkdays(eligibleWorkdays))
                 
@@ -56,6 +68,17 @@ struct OnboardingView: View {
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
+    }
+}
+
+// MARK: Helper Functions
+extension OnboardingView {
+    private func processDateSelectorSheet() {
+        if bindingDate > Date.now { // Indicates Cancel was tapped - don't persist result
+            bindingDate = startDate ?? .now // Set back to last selection if we have one
+        } else { // valid selection made
+            self.startDate = bindingDate
+        }
     }
 }
 
