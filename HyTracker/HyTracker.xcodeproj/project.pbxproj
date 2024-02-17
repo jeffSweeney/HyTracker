@@ -27,6 +27,7 @@
 		E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */; };
 		E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */; };
 		E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941F2B81744F00FF01D0 /* HTLogoView.swift */; };
+		E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94232B8175E800FF01D0 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDoneLabel.swift; sourceTree = "<group>"; };
 		E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E03E941F2B81744F00FF01D0 /* HTLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTLogoView.swift; sourceTree = "<group>"; };
+		E03E94232B8175E800FF01D0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,8 @@
 		E03E93F12B78094200FF01D0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				E03E94212B8175C800FF01D0 /* View */,
+				E03E94222B8175DA00FF01D0 /* ViewModel */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -267,6 +271,21 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		E03E94212B8175C800FF01D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E03E94232B8175E800FF01D0 /* MainTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03E94222B8175DA00FF01D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -342,6 +361,7 @@
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
+				E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
 				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
