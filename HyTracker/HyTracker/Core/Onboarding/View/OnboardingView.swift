@@ -15,6 +15,7 @@ struct OnboardingView: View {
     // Binding date allows us to present our datepicker sheet an let our initial startDate be nil
     // TODO: Is there a better way to handle this?
     @State private var bindingDate: Date = .now
+    @State private var bindingCount: Int = 0
     
     @State private var showingDateSheet = false
     @State private var showingWorkdaySheet = false
@@ -37,7 +38,8 @@ struct OnboardingView: View {
             
             VStack(alignment: .leading, spacing: 24) {
                 Button(action: { showingDateSheet = true }, label: {
-                    InputComponentView(component: .startDate(startDate))
+                    // First question is always actionable
+                    InputComponentView(component: .startDate(startDate), isActionable: true)
                         .foregroundStyle(.black)
                 })
                 .sheet(isPresented: $showingDateSheet, onDismiss: { processDateSelectorSheet() }) {
@@ -45,19 +47,23 @@ struct OnboardingView: View {
                 }
                 
                 Button(action: { showingWorkdaySheet = true }, label: {
-                    InputComponentView(component: .eligibleWorkdays(eligibleWorkdays))
+                    // Only actionable if we've answered the first question
+                    InputComponentView(component: .eligibleWorkdays(eligibleWorkdays), isActionable: startDate != nil)
                         .foregroundStyle(.black)
                 })
-                .sheet(isPresented: $showingWorkdaySheet, onDismiss: {  }) {
+                .disabled(startDate == nil)
+                .sheet(isPresented: $showingWorkdaySheet, onDismiss: { processEligibleWorkdaySheet() }) {
                     EligibleWorkdaySheet(eligibleWorkdays: $eligibleWorkdays)
                 }
                 
                 Button(action: { showingRequirementSheet = true }) {
-                    InputComponentView(component: .requiredDays(requiredDays))
+                    // Only actionable if we've provided eligible days
+                    InputComponentView(component: .requiredDays(requiredDays), isActionable: !eligibleWorkdays.isEmpty)
                         .foregroundStyle(.black)
                 }
-                .sheet(isPresented: $showingRequirementSheet, onDismiss: {  }) {
-                    WeeklyRequirementsSheet()
+                .disabled(eligibleWorkdays.isEmpty)
+                .sheet(isPresented: $showingRequirementSheet, onDismiss: { processRequirementSheet() } ) {
+                    WeeklyRequirementsSheet(requiredDaysCount: $bindingCount, maxNumber: eligibleWorkdays.count)
                 }
             }
             .padding()
@@ -92,6 +98,20 @@ extension OnboardingView {
             bindingDate = startDate ?? .now // Set back to last selection if we have one
         } else { // valid selection made
             self.startDate = bindingDate
+        }
+    }
+    
+    private func processEligibleWorkdaySheet() {
+        // Unset the required days if the new eligibleWorkdays is less than the previous selection
+        if bindingCount > eligibleWorkdays.count {
+            bindingCount = 0
+            requiredDays = nil
+        }
+    }
+    
+    private func processRequirementSheet() {
+        if bindingCount > 0 {
+            requiredDays = bindingCount
         }
     }
 }

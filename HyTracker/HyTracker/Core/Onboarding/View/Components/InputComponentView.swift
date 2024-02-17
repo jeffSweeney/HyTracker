@@ -9,6 +9,13 @@ import SwiftUI
 
 struct InputComponentView: View {
     let component: InputComponent
+    let isActionable: Bool
+    
+    var symbolName: String {
+        if component.hasInput { return "checkmark" }
+        
+        return isActionable ? "pencil" : "pencil.slash"
+    }
     
     var body: some View {
         HStack {
@@ -17,7 +24,7 @@ struct InputComponentView: View {
             
             Spacer()
             
-            Image(systemName: component.hasInput ? "checkmark" : "pencil")
+            Image(systemName: symbolName)
                 .fontWeight(component.hasInput ? .bold : .none)
         }
         .padding()
@@ -30,5 +37,5 @@ struct InputComponentView: View {
 }
 
 #Preview {
-    InputComponentView(component: .startDate(nil))
+    InputComponentView(component: .startDate(nil), isActionable: true)
 }
