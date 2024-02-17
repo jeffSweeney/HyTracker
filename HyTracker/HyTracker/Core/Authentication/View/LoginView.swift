@@ -43,15 +43,7 @@ struct LoginView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
         .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Image(systemName: "xmark")
-                })
-            }
-        }
+        .modifier(WelcomeDismissModifier())
     }
 }
 

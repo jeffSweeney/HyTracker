@@ -28,6 +28,7 @@
 		E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */; };
 		E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941F2B81744F00FF01D0 /* HTLogoView.swift */; };
 		E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94232B8175E800FF01D0 /* MainTabView.swift */; };
+		E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E03E941F2B81744F00FF01D0 /* HTLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTLogoView.swift; sourceTree = "<group>"; };
 		E03E94232B8175E800FF01D0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDismissModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E94022B7856FE00FF01D0 /* AuthenticationTFComponent.swift */,
+				E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
+				E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
