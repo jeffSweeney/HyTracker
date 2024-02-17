@@ -1,5 +1,5 @@
 //
-//  DateSelectorSheet.swift
+//  StartDateSelectorSheet.swift
 //  HyTracker
 //
 //  Created by Jeffrey Sweeney on 2/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DateSelectorSheet: View {
+struct StartDateSelectorSheet: View {
     @Binding var selectedDate: Date
     
     @Environment(\.dismiss) var dismiss
@@ -66,5 +66,5 @@ struct DateSelectorSheet: View {
 }
 
 #Preview {
-    DateSelectorSheet(selectedDate: .constant(Date.now))
+    StartDateSelectorSheet(selectedDate: .constant(Date.now))
 }

@@ -41,7 +41,7 @@ struct OnboardingView: View {
                         .foregroundStyle(.black)
                 })
                 .sheet(isPresented: $showingDateSheet, onDismiss: { processDateSelectorSheet() }) {
-                    DateSelectorSheet(selectedDate: $bindingDate)
+                    StartDateSelectorSheet(selectedDate: $bindingDate)
                 }
                 
                 Button(action: { showingWorkdaySheet = true }, label: {
