@@ -25,6 +25,7 @@
 		E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94162B797A0200FF01D0 /* EligibleWorkdaySheet.swift */; };
 		E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94182B797A4500FF01D0 /* WeeklyRequirementsSheet.swift */; };
 		E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */; };
+		E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E03E94162B797A0200FF01D0 /* EligibleWorkdaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibleWorkdaySheet.swift; sourceTree = "<group>"; };
 		E03E94182B797A4500FF01D0 /* WeeklyRequirementsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRequirementsSheet.swift; sourceTree = "<group>"; };
 		E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDoneLabel.swift; sourceTree = "<group>"; };
+		E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		E03E94082B79174700FF01D0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
+				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
