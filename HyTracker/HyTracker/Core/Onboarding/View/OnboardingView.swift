@@ -18,11 +18,7 @@ struct OnboardingView: View {
         VStack {
             Spacer()
             
-            Image("ht_logo")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 150, height: 150)
-                .padding()
+            HTLogoView(size: .normal)
             
             Text("Before we get started, let's gather a little information about your tracking and requirements.")
                 .font(.subheadline)

@@ -18,11 +18,7 @@ struct EligibleWorkdaySheet: View {
             ScrollView {
                 Spacer()
                 
-                Image("ht_logo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .padding()
+                HTLogoView(size: .normal)
                 
                 Text("Selecting your eligible workdays helps us calculate which days should and shouldn't count toward your analytics.")
                     .font(.subheadline)

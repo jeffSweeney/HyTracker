@@ -17,11 +17,7 @@ struct StartDateSelectorSheet: View {
             VStack {
                 Spacer()
                 
-                Image("ht_logo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .padding()
+                HTLogoView(size: .normal)
                 
                 Text("Setting your start date helps provide a stopping point for analytics. You will not be able to record attendance prior to this date, nor will they be counted against you in later tracking reports.")
                     .font(.subheadline)

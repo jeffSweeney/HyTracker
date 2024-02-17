@@ -16,11 +16,7 @@ struct SignupView: View {
     
     var body: some View {
         VStack {
-            Image("ht_logo")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 150, height: 150)
-                .padding()
+            HTLogoView(size: .normal)
             
             VStack(spacing: 20) {
                 AuthenticationTFComponent(component: .fullname, captureInput: $fullname)

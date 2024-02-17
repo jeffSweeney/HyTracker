@@ -13,10 +13,7 @@ struct WelcomeView: View {
             VStack {
                 Spacer()
                 
-                Image("ht_logo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
+                HTLogoView(size: .normal)
                 
                 VStack(spacing: 12) {
                     Text("HyTracker")

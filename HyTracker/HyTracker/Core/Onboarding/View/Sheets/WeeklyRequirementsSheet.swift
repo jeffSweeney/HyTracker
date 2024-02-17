@@ -18,11 +18,7 @@ struct WeeklyRequirementsSheet: View {
             VStack {
                 Spacer()
                 
-                Image("ht_logo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .padding()
+                HTLogoView(size: .normal)
                 
                 Text("Setting your number of required in-office days helps analytics understand your target goals.")
                     .font(.subheadline)
