@@ -60,6 +60,8 @@
 		E03E94632B8242D400FF01D0 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E03E94622B8242D400FF01D0 /* FirebaseRemoteConfigSwift */; };
 		E03E94652B8242D400FF01D0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E03E94642B8242D400FF01D0 /* FirebaseStorage */; };
 		E03E94672B8242D400FF01D0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E03E94662B8242D400FF01D0 /* FirebaseStorageCombine-Community */; };
+		E03E94692B82589000FF01D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94682B82589000FF01D0 /* AuthService.swift */; };
+		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		E03E94292B81812C00FF01D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E03E942B2B81813F00FF01D0 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		E03E942F2B82421200FF01D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E03E94682B82589000FF01D0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 		E03E93EC2B7808E200FF01D0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E03E94682B82589000FF01D0 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,7 +240,8 @@
 		E03E93F32B78101200FF01D0 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				E03E93E02B7808C700FF01D0 /* ContentView.swift */,
+				E03E946A2B8263A300FF01D0 /* View */,
+				E03E946B2B8263A600FF01D0 /* ViewModel */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -355,6 +361,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E03E946A2B8263A300FF01D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E03E93E02B7808C700FF01D0 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03E946B2B8263A600FF01D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,12 +489,14 @@
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
+				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
 				E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
 				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
 				E03E94142B79564A00FF01D0 /* StartDateSelectorSheet.swift in Sources */,
+				E03E94692B82589000FF01D0 /* AuthService.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
 				E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,
