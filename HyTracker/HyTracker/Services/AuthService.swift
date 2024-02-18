@@ -18,11 +18,29 @@ final class AuthService {
         userSession = Auth.auth().currentUser
     }
     
-    func signIn() {
-        print("DEBUG: Auth Service signIn called")
+    @MainActor
+    func signIn(withEmail email: String, password: String) async throws {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userSession = result.user
+        } catch {
+            // TODO: Properly handle/delegate error message
+            print("DEBUG: Sign in error: \(error.localizedDescription)")
+        }
     }
     
-    func createUser() {
-        print("DEBUG: Auth Service createUser called")
+    @MainActor
+    func createUser(withEmail email: String, password: String, fullname: String) async throws {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            self.userSession = result.user
+        } catch {
+            print("DEBUG: Create user error: \(error.localizedDescription)")
+        }
+    }
+    
+    func signOut() {
+        try? Auth.auth().signOut()
+        self.userSession = nil
     }
 }

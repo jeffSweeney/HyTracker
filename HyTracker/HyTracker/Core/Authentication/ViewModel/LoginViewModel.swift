@@ -17,7 +17,8 @@ class LoginViewModel: ObservableObject {
         loginFormComplete = !email.isEmpty && !password.isEmpty
     }
     
-    func loginTapped() {
-        print("DEBUG: LOG IN TAPPED")
+    @MainActor
+    func loginTapped() async throws {
+        try await AuthService.shared.signIn(withEmail: email, password: password)
     }
 }

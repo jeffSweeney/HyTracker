@@ -22,7 +22,7 @@ struct LoginView: View {
             .padding()
             
             Button(action: {
-                viewModel.loginTapped()
+                Task { try await viewModel.loginTapped() }
             }, label: {
                 HTPrimaryButton(screen: .login, isActionable: viewModel.loginFormComplete)
             })

@@ -18,7 +18,8 @@ class SignupViewModel: ObservableObject {
         signupFormComplete = !fullname.isEmpty && !email.isEmpty && !password.isEmpty
     }
     
-    func signupTapped() {
-        print("DEBUG: SIGN UP TAPPED")
+    @MainActor
+    func signupTapped() async throws {
+        try await AuthService.shared.createUser(withEmail: email, password: password, fullname: fullname)
     }
 }
