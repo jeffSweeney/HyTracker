@@ -8,26 +8,23 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    
-    @Environment(\.dismiss) var dismiss
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         VStack {
             HTLogoView(size: .normal)
             
             VStack(spacing: 20) {
-                AuthenticationTFComponent(component: .email, captureInput: $email)
+                AuthenticationTFComponent(component: .email, captureInput: $viewModel.email)
                 
-                AuthenticationTFComponent(component: .password, captureInput: $password)
+                AuthenticationTFComponent(component: .password, captureInput: $viewModel.password)
             }
             .padding()
             
             Button(action: {
-                print("DEBUG: LOG IN TAPPED")
+                viewModel.loginTapped()
             }, label: {
-                AuthenticationPrimaryButton(screen: .login)
+                AuthenticationPrimaryButton(screen: .login, isActionable: viewModel.loginFormComplete)
             })
         }
         .fontDesign(.serif)

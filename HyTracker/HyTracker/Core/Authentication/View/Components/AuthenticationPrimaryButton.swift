@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AuthenticationPrimaryButton: View {
     let screen: Screen
+    let isActionable: Bool
     
     var body: some View {
         Text(screen.label)
@@ -21,6 +22,7 @@ struct AuthenticationPrimaryButton: View {
                     .foregroundStyle(.black)
             }
             .padding()
+            .opacity(isActionable ? 1 : 0.15)
     }
 }
 
@@ -37,5 +39,5 @@ enum Screen {
 }
 
 #Preview {
-    AuthenticationPrimaryButton(screen: .login)
+    AuthenticationPrimaryButton(screen: .login, isActionable: true)
 }

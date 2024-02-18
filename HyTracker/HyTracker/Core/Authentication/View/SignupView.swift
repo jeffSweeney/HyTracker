@@ -8,30 +8,27 @@
 import SwiftUI
 
 struct SignupView: View {
-    @State private var fullname: String = ""
-    @State private var email: String = ""
-    @State private var password: String = ""
-    
-    @Environment(\.dismiss) var dismiss
+    @StateObject private var viewModel = SignupViewModel()
     
     var body: some View {
         VStack {
             HTLogoView(size: .normal)
             
             VStack(spacing: 20) {
-                AuthenticationTFComponent(component: .fullname, captureInput: $fullname)
+                AuthenticationTFComponent(component: .fullname, captureInput: $viewModel.fullname)
                 
-                AuthenticationTFComponent(component: .email, captureInput: $email)
+                AuthenticationTFComponent(component: .email, captureInput: $viewModel.email)
                 
-                AuthenticationTFComponent(component: .password, captureInput: $password)
+                AuthenticationTFComponent(component: .password, captureInput: $viewModel.password)
             }
             .padding()
             
             Button(action: {
-                print("DEBUG: SIGN UP TAPPED")
+                viewModel.signupTapped()
             }, label: {
-                AuthenticationPrimaryButton(screen: .signup)
+                AuthenticationPrimaryButton(screen: .signup, isActionable: viewModel.signupFormComplete)
             })
+            .disabled(!viewModel.signupFormComplete)
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
