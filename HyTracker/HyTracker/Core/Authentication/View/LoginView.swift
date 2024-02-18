@@ -27,16 +27,7 @@ struct LoginView: View {
             Button(action: {
                 print("DEBUG: LOG IN TAPPED")
             }, label: {
-                Text("LOG IN")
-                    .font(.headline)
-                    .foregroundStyle(.black)
-                    .frame(width: 300, height: 40)
-                    .overlay {
-                        Capsule()
-                            .stroke(lineWidth: 2)
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                AuthenticationPrimaryButton(screen: .login)
             })
         }
         .fontDesign(.serif)

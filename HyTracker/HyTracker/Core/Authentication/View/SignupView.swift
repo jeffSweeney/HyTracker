@@ -30,16 +30,7 @@ struct SignupView: View {
             Button(action: {
                 print("DEBUG: SIGN UP TAPPED")
             }, label: {
-                Text("SIGN UP")
-                    .font(.headline)
-                    .foregroundStyle(.black)
-                    .frame(width: 300, height: 40)
-                    .overlay {
-                        Capsule()
-                            .stroke(lineWidth: 2)
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                AuthenticationPrimaryButton(screen: .signup)
             })
         }
         .fontDesign(.serif)
