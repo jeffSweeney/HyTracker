@@ -65,16 +65,7 @@ struct OnboardingView: View {
             Button(action: {
                 print("DEBUG: GET STARTED TAPPED")
             }, label: {
-                Text("GET STARTED")
-                    .font(.headline)
-                    .foregroundStyle(.black)
-                    .frame(width: 300, height: 40)
-                    .overlay {
-                        Capsule()
-                            .stroke(lineWidth: 2)
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                HTPrimaryButton(screen: .getStarted, isActionable: viewModel.answeredAllOnboarding)
             })
             .disabled(!viewModel.answeredAllOnboarding)
         }

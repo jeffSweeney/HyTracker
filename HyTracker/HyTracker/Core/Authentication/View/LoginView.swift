@@ -24,8 +24,9 @@ struct LoginView: View {
             Button(action: {
                 viewModel.loginTapped()
             }, label: {
-                AuthenticationPrimaryButton(screen: .login, isActionable: viewModel.loginFormComplete)
+                HTPrimaryButton(screen: .login, isActionable: viewModel.loginFormComplete)
             })
+            .disabled(!viewModel.loginFormComplete)
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -26,7 +26,7 @@ struct SignupView: View {
             Button(action: {
                 viewModel.signupTapped()
             }, label: {
-                AuthenticationPrimaryButton(screen: .signup, isActionable: viewModel.signupFormComplete)
+                HTPrimaryButton(screen: .signup, isActionable: viewModel.signupFormComplete)
             })
             .disabled(!viewModel.signupFormComplete)
         }

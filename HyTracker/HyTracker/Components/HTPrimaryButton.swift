@@ -1,5 +1,5 @@
 //
-//  AuthenticationPrimaryButton.swift
+//  HTPrimaryButton.swift
 //  HyTracker
 //
 //  Created by Jeffrey Sweeney on 2/17/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AuthenticationPrimaryButton: View {
+struct HTPrimaryButton: View {
     let screen: Screen
     let isActionable: Bool
     
@@ -27,11 +27,13 @@ struct AuthenticationPrimaryButton: View {
 }
 
 enum Screen {
+    case getStarted
     case login
     case signup
     
     var label: String {
         switch self {
+        case .getStarted: "GET STARTED"
         case .login: "LOG IN"
         case .signup: "SIGN UP"
         }
@@ -39,5 +41,5 @@ enum Screen {
 }
 
 #Preview {
-    AuthenticationPrimaryButton(screen: .login, isActionable: true)
+    HTPrimaryButton(screen: .login, isActionable: true)
 }
