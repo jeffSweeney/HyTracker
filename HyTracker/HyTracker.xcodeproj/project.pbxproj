@@ -62,6 +62,7 @@
 		E03E94672B8242D400FF01D0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E03E94662B8242D400FF01D0 /* FirebaseStorageCombine-Community */; };
 		E03E94692B82589000FF01D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94682B82589000FF01D0 /* AuthService.swift */; };
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
+		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		E03E942F2B82421200FF01D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E03E94682B82589000FF01D0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		E03E93ED2B7808E600FF01D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E03E946F2B826A4500FF01D0 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03E94702B826A4500FF01D0 /* User.swift in Sources */,
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */,
