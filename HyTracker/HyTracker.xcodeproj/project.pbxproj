@@ -63,6 +63,7 @@
 		E03E94692B82589000FF01D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94682B82589000FF01D0 /* AuthService.swift */; };
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
+		E03E94722B86400900FF01D0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94712B86400900FF01D0 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		E03E94682B82589000FF01D0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E03E94712B86400900FF01D0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E94682B82589000FF01D0 /* AuthService.swift */,
+				E03E94712B86400900FF01D0 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			files = (
 				E03E94702B826A4500FF01D0 /* User.swift in Sources */,
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
+				E03E94722B86400900FF01D0 /* UserService.swift in Sources */,
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */,
 				E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */,
@@ -650,6 +654,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -679,6 +684,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

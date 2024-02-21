@@ -11,7 +11,7 @@ final class OnboardingViewModel: ObservableObject {
     // MARK: - Top level state properties
     @Published var startDate: Date? = nil { didSet { updatedAnswer() } }
     @Published var eligibleWorkdays: Set<Weekday> = [] { didSet { updatedAnswer() } }
-    @Published var requiredDays: Int? = nil { didSet { updatedAnswer() } }
+    @Published var requiredDaysCount: Int? = nil { didSet { updatedAnswer() } }
     
     // MARK: - Temp level state properties - used during input stage
     @Published var bindingDate: Date = .now
@@ -26,7 +26,7 @@ final class OnboardingViewModel: ObservableObject {
     private func updatedAnswer() {
         answeredStartDate = startDate != nil
         answeredEligibleWorkdays = !eligibleWorkdays.isEmpty
-        answeredRequirementDays = (requiredDays ?? 0) > 0
+        answeredRequirementDays = (requiredDaysCount ?? 0) > 0
         
         answeredAllOnboarding = answeredStartDate
                                 && answeredEligibleWorkdays
@@ -46,13 +46,29 @@ final class OnboardingViewModel: ObservableObject {
         // Unset the required days if the new eligibleWorkdays is less than the previous selection
         if bindingCount > eligibleWorkdays.count {
             bindingCount = 0
-            requiredDays = nil
+            requiredDaysCount = nil
         }
     }
     
     func processRequirementSheet() {
         if bindingCount > 0 {
-            requiredDays = bindingCount
+            requiredDaysCount = bindingCount
+        } else if let requiredDaysCount {
+            bindingCount = requiredDaysCount
         }
+    }
+    
+    // MARK: - Complete Onboarding
+    func completeOnboarding() async throws {
+        guard answeredAllOnboarding, let date = startDate, !eligibleWorkdays.isEmpty, let daysCount = requiredDaysCount else {
+            print("DEBUG: Attempting to complete onboarding while incomplete. Collected data:")
+            print("DEBUG: answeredAllOnboarding: \(answeredAllOnboarding)")
+            print("DEBUG: startDate: \(startDate)")
+            print("DEBUG: eligibleWorkdays: \(eligibleWorkdays)")
+            print("DEBUG: requiredDaysCount: \(requiredDaysCount)")
+            return
+        }
+        
+        try await UserService.shared.completeOnboarding(startDate: date, eligibleDays: eligibleWorkdays, weeklyRequirementTotal: daysCount)
     }
 }

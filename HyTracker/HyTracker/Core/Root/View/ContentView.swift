@@ -12,8 +12,13 @@ struct ContentView: View {
     
     var body: some View {
         if viewModel.userSession != nil {
-            // TODO: Check if user still needs to onboard before going to MainTabView
-            MainTabView()
+            if let user = viewModel.currentUser {
+                if user.hasOnboarded {
+                    MainTabView(user: user)
+                } else {
+                    OnboardingView()
+                }
+            }
         } else {
             WelcomeView()
         }

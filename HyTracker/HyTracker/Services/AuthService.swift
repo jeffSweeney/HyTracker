@@ -22,6 +22,7 @@ final class AuthService {
     func signIn(withEmail email: String, password: String) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            try await UserService.shared.fetchCurrentUser()
             self.userSession = result.user
         } catch {
             // TODO: Properly handle/delegate error message
@@ -33,6 +34,7 @@ final class AuthService {
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            try await UserService.shared.createUser(uid: result.user.uid, withEmail: email, fullname: fullname)
             self.userSession = result.user
         } catch {
             print("DEBUG: Create user error: \(error.localizedDescription)")
@@ -42,5 +44,6 @@ final class AuthService {
     func signOut() {
         try? Auth.auth().signOut()
         self.userSession = nil
+        UserService.shared.signOut()
     }
 }

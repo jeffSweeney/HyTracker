@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct MainTabView: View {
+    let user: User
+    
     var body: some View {
         VStack {
             HTLogoView(size: .normal)
             
             Text("UNDER CONSTRUCTION: Main Tab View")
+                .padding(.vertical)
+            Text("WELCOME, \(user.fullname)")
+            Text("Email: \(user.email)")
+            Text("Has Onboarded: \(user.hasOnboarded.description)")
+            Text("Weekly Requirements: \(user.weeklyRequirementTotal?.description ?? "UNKNOWN")")
             
             Button(action: {
                 AuthService.shared.signOut()
@@ -33,5 +40,8 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(user: User(id: "id123",
+                           email: "Jeff@test.com",
+                           fullname: "Jeff Sweeney",
+                           hasOnboarded: true))
 }

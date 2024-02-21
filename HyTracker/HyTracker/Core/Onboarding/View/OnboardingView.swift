@@ -49,7 +49,7 @@ struct OnboardingView: View {
                 
                 Button(action: { showingRequirementSheet = true }) {
                     // Only actionable if we've provided eligible days
-                    InputComponentView(component: .requiredDays(viewModel.requiredDays), 
+                    InputComponentView(component: .requiredDaysCount(viewModel.requiredDaysCount), 
                                        isActionable: viewModel.answeredEligibleWorkdays)
                         .foregroundStyle(.black)
                 }
@@ -63,7 +63,7 @@ struct OnboardingView: View {
             Spacer()
             
             Button(action: {
-                print("DEBUG: GET STARTED TAPPED")
+                Task { try await viewModel.completeOnboarding() }
             }, label: {
                 HTPrimaryButton(screen: .getStarted, isActionable: viewModel.answeredAllOnboarding)
             })
