@@ -1,5 +1,5 @@
 //
-//  MainTabView.swift
+//  MainTabView_UnderConstruction.swift
 //  HyTracker
 //
 //  Created by Jeffrey Sweeney on 2/17/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainTabView: View {
+struct MainTabView_UnderConstruction: View {
     let user: User
     
     var body: some View {
@@ -42,7 +42,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(user: User(id: "id123",
+    MainTabView_UnderConstruction(user: User(id: "id123",
                            email: "Jeff@test.com",
                            fullname: "Jeff Sweeney",
                            hasOnboarded: true))

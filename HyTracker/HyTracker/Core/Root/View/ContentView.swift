@@ -14,7 +14,7 @@ struct ContentView: View {
         if viewModel.userSession != nil {
             if let user = viewModel.currentUser {
                 if user.hasOnboarded {
-                    MainTabView(user: user)
+                    MainTabView_UnderConstruction(user: user)
                 } else {
                     OnboardingView()
                 }

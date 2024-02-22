@@ -27,7 +27,7 @@
 		E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */; };
 		E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */; };
 		E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941F2B81744F00FF01D0 /* HTLogoView.swift */; };
-		E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94232B8175E800FF01D0 /* MainTabView.swift */; };
+		E03E94242B8175E800FF01D0 /* MainTabView_UnderConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94232B8175E800FF01D0 /* MainTabView_UnderConstruction.swift */; };
 		E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */; };
 		E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94272B81791E00FF01D0 /* HTPrimaryButton.swift */; };
 		E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94292B81812C00FF01D0 /* LoginViewModel.swift */; };
@@ -88,7 +88,7 @@
 		E03E941A2B797CED00FF01D0 /* SheetDoneLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDoneLabel.swift; sourceTree = "<group>"; };
 		E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E03E941F2B81744F00FF01D0 /* HTLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTLogoView.swift; sourceTree = "<group>"; };
-		E03E94232B8175E800FF01D0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		E03E94232B8175E800FF01D0 /* MainTabView_UnderConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView_UnderConstruction.swift; sourceTree = "<group>"; };
 		E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDismissModifier.swift; sourceTree = "<group>"; };
 		E03E94272B81791E00FF01D0 /* HTPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTPrimaryButton.swift; sourceTree = "<group>"; };
 		E03E94292B81812C00FF01D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 		E03E94212B8175C800FF01D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E03E94232B8175E800FF01D0 /* MainTabView.swift */,
+				E03E94232B8175E800FF01D0 /* MainTabView_UnderConstruction.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -495,7 +495,7 @@
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
-				E03E94242B8175E800FF01D0 /* MainTabView.swift in Sources */,
+				E03E94242B8175E800FF01D0 /* MainTabView_UnderConstruction.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
 				E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */,
