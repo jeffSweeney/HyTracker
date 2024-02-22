@@ -125,36 +125,3 @@ extension User {
 extension User {
     static let collectionName = "users"
 }
-
-// MARK: - Mutable User Properties
-enum MutableUserProperty {
-    case fullname(String)
-    case hasOnboarded(Bool)
-    case profileImageURL(String)
-    case startDate(Date)
-    case eligibleDays(Set<Weekday>)
-    case weeklyRequirementTotal(Int)
-    case exemptDays(Set<Date>)
-    case inOfficeDays(Set<Date>)
-    
-    var kvUpdate: (String, Any) {
-        switch self {
-        case .fullname(let value):
-            return ("fullname", value)
-        case .hasOnboarded(let value):
-            return ("hasOnboarded", value)
-        case .profileImageURL(let value):
-            return ("profileImageURL", value)
-        case .startDate(let value):
-            return ("startDate", value)
-        case .eligibleDays(let value):
-            return ("eligibleDays", value)
-        case .weeklyRequirementTotal(let value):
-            return ("weeklyRequirementTotal", value)
-        case .exemptDays(let value):
-            return ("exemptDays", value)
-        case .inOfficeDays(let value):
-            return ("inOfficeDays", value)
-        }
-    }
-}

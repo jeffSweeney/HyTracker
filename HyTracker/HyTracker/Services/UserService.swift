@@ -50,19 +50,14 @@ final class UserService: ObservableObject {
     @MainActor
     func completeOnboarding(startDate date: Date, eligibleDays days: Set<Weekday>, weeklyRequirementTotal count: Int) async throws {
         do {
-            guard let uid = Auth.auth().currentUser?.uid else { return } // TODO: Throw?
+            guard var user = currentUser else { return } // TODO: Throw?
             
-            let updatedProperties: [MutableUserProperty] = [.hasOnboarded(true),
-                                                            .startDate(date),
-//                                                            .eligibleDays(days), // TODO: BUG! How do I send this to Firestore?!
-                                                            .weeklyRequirementTotal(count)]
+            user.hasOnboarded = true
+            user.startDate = date
+            user.eligibleDays = days
+            user.weeklyRequirementTotal = count
             
-            let updatedData = updatedProperties.reduce(into: [String: Any]()) { result, mutableUserProperty in
-                let (k, v) = mutableUserProperty.kvUpdate
-                result[k] = v
-            }
-            
-            try await Firestore.firestore().collection(User.collectionName).document(uid).setData(updatedData, merge: true)
+            try Firestore.firestore().collection(User.collectionName).document(user.id).setData(from: user, merge: true)
             try await fetchCurrentUser()
         } catch {
             print("DEBUG: Issue completing onboarding with error \(error.localizedDescription)")
