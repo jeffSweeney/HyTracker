@@ -66,7 +66,7 @@ struct EligibleWorkdaySheet: View {
                 Button(action: {
                     dismiss()
                 }, label: {
-                    SheetDoneLabel()
+                    SheetDoneLabel() // TODO: Refactor this to use the primary button??
                 })
             }
             .navigationTitle("Eligible Workdays Selection")
