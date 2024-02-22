@@ -64,6 +64,13 @@
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
 		E03E94722B86400900FF01D0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94712B86400900FF01D0 /* UserService.swift */; };
+		E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA02B87C2C6007E542E /* MainTabView.swift */; };
+		E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA32B87C312007E542E /* TrackDaysView.swift */; };
+		E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA52B87C31C007E542E /* GenerateReportView.swift */; };
+		E0C21CA82B87C32C007E542E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA72B87C32C007E542E /* ProfileView.swift */; };
+		E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB22B87C411007E542E /* User+MockData.swift */; };
+		E0C21CB52B87CEAF007E542E /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */; };
+		E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +105,13 @@
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E03E94712B86400900FF01D0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E0C21CA02B87C2C6007E542E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		E0C21CA32B87C312007E542E /* TrackDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDaysView.swift; sourceTree = "<group>"; };
+		E0C21CA52B87C31C007E542E /* GenerateReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportView.swift; sourceTree = "<group>"; };
+		E0C21CA72B87C32C007E542E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E0C21CB22B87C411007E542E /* User+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+MockData.swift"; sourceTree = "<group>"; };
+		E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HyTracker.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,9 +214,12 @@
 			isa = PBXGroup;
 			children = (
 				E03E93F02B78093A00FF01D0 /* Authentication */,
+				E0C21CAA2B87C348007E542E /* GenerateReport */,
 				E03E93F22B78094500FF01D0 /* Onboarding */,
+				E0C21CAB2B87C34D007E542E /* Profile */,
 				E03E93F32B78101200FF01D0 /* Root */,
 				E03E93F12B78094200FF01D0 /* TabBar */,
+				E0C21CA92B87C343007E542E /* TrackDays */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -329,6 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
+				E0C21CB22B87C411007E542E /* User+MockData.swift */,
+				E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -356,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E94232B8175E800FF01D0 /* MainTabView_UnderConstruction.swift */,
+				E0C21CA02B87C2C6007E542E /* MainTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +383,7 @@
 		E03E94222B8175DA00FF01D0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -381,6 +402,30 @@
 				E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E0C21CA92B87C343007E542E /* TrackDays */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CA32B87C312007E542E /* TrackDaysView.swift */,
+			);
+			path = TrackDays;
+			sourceTree = "<group>";
+		};
+		E0C21CAA2B87C348007E542E /* GenerateReport */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CA52B87C31C007E542E /* GenerateReportView.swift */,
+			);
+			path = GenerateReport;
+			sourceTree = "<group>";
+		};
+		E0C21CAB2B87C34D007E542E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CA72B87C32C007E542E /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,12 +542,16 @@
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94242B8175E800FF01D0 /* MainTabView_UnderConstruction.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
+				E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */,
 				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
 				E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
 				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
+				E0C21CA82B87C32C007E542E /* ProfileView.swift in Sources */,
+				E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */,
+				E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */,
 				E03E94142B79564A00FF01D0 /* StartDateSelectorSheet.swift in Sources */,
 				E03E94692B82589000FF01D0 /* AuthService.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
@@ -511,8 +560,11 @@
 				E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */,
 				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,
 				E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */,
+				E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */,
+				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 				E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */,
+				E0C21CB52B87CEAF007E542E /* MainTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

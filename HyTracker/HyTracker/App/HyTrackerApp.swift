@@ -22,8 +22,12 @@ struct HyTrackerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     init() {
-        // Exclusively light mode for now
-        UIWindow.appearance().overrideUserInterfaceStyle = .light
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.systemBackground // Set background color
+        
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
     var body: some Scene {

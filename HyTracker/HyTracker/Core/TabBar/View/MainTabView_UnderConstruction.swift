@@ -42,8 +42,5 @@ struct MainTabView_UnderConstruction: View {
 }
 
 #Preview {
-    MainTabView_UnderConstruction(user: User(id: "id123",
-                           email: "Jeff@test.com",
-                           fullname: "Jeff Sweeney",
-                           hasOnboarded: true))
+    MainTabView_UnderConstruction(user: User.MOCK_USER)
 }
