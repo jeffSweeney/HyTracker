@@ -14,9 +14,12 @@ struct TrackDaysView: View {
         VStack {
             HTLogoView(size: .normal)
                 .padding(.vertical)
-            
-            Text("TrackDaysView: UNDER CONSTRUCTION")
-                .padding(.vertical)
+
+            VStack(spacing: 8) {
+                Text("TrackDaysView")
+                Text("UNDER CONSTRUCTION")
+            }
+            .padding(.vertical)
             
             Text("Welcome, \(viewModel.user.fullname)!")
         }

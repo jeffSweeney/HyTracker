@@ -15,8 +15,11 @@ struct GenerateReportView: View {
             HTLogoView(size: .normal)
                 .padding(.vertical)
             
-            Text("GenerageReportView: UNDER CONSTRUCTION")
-                .padding(.vertical)
+            VStack(spacing: 8) {
+                Text("GenerateReportView")
+                Text("UNDER CONSTRUCTION")
+            }
+            .padding(.vertical)
             
             Text("Welcome, \(viewModel.user.fullname)!")
         }
