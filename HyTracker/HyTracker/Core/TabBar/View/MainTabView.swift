@@ -19,7 +19,7 @@ struct MainTabView: View {
             Text("WELCOME, \(user.fullname)")
             Text("Email: \(user.email)")
             Text("Has Onboarded: \(user.hasOnboarded.description)")
-            Text("Start date: \(user.startDate?.description ?? "UNKNOWN")")
+            Text("Start date: \(user.startDate?.asHyTrackerDate ?? "UNKNOWN")")
             Text("Workdays: \(user.eligibleDays?.sorted{$0.rawValue < $1.rawValue}.map{$0.label}.joined(separator: ", ") ?? "UNKNOWN")")
             Text("Weekly Requirements: \(user.weeklyRequirementTotal?.description ?? "UNKNOWN")")
             
