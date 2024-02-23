@@ -30,5 +30,5 @@ struct TrackDaysView: View {
 }
 
 #Preview {
-    TrackDaysView(viewModel: MainTabViewModel(user: User.MOCK_USER))
+    TrackDaysView(viewModel: MainTabViewModel(user: User.BASIC_MOCK_USER))
 }

@@ -30,5 +30,5 @@ struct GenerateReportView: View {
 }
 
 #Preview {
-    GenerateReportView(viewModel: MainTabViewModel(user: User.MOCK_USER))
+    GenerateReportView(viewModel: MainTabViewModel(user: User.BASIC_MOCK_USER))
 }
