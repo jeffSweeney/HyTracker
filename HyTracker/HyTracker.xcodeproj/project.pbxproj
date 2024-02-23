@@ -71,6 +71,7 @@
 		E0C21CB52B87CEAF007E542E /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */; };
 		E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */; };
 		E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */; };
+		E0C21CBD2B894398007E542E /* RequirementStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CBC2B894398007E542E /* RequirementStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HyTracker.swift"; sourceTree = "<group>"; };
 		E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+HyTracker.swift"; sourceTree = "<group>"; };
+		E0C21CBC2B894398007E542E /* RequirementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,8 +426,17 @@
 			isa = PBXGroup;
 			children = (
 				E0C21CA72B87C32C007E542E /* ProfileView.swift */,
+				E0C21CBA2B8942E1007E542E /* Components */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		E0C21CBA2B8942E1007E542E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CBC2B894398007E542E /* RequirementStack.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,6 +564,7 @@
 				E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */,
 				E03E94142B79564A00FF01D0 /* StartDateSelectorSheet.swift in Sources */,
 				E03E94692B82589000FF01D0 /* AuthService.swift in Sources */,
+				E0C21CBD2B894398007E542E /* RequirementStack.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
 				E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,

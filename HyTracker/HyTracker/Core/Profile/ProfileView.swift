@@ -29,43 +29,15 @@ struct ProfileView: View {
                 .padding(.vertical, 40)
                 
                 HStack(alignment: .top) {
-                    VStack(spacing: 18) {
-                        Text("Analytics Start Date")
-                            .lineLimit(2)
-                        
-                        Text(user.startDate?.asHyTrackerDate ?? "UNKNOWN")
-                            .fontWeight(.semibold)
-                    }
-                    .multilineTextAlignment(.center)
-                    .font(.footnote)
-                    .frame(width: 100)
-                    
-                    Divider()
-                        .foregroundStyle(Color.hyTrackerBlue)
-                    
-                    VStack(spacing: 18) {
-                        Text("Eligible Office Days")
-                            .lineLimit(2)
-                        
-                        Text(user.eligibleDays?.asSortedHyTrackerString ?? "UNKNOWN")
-                            .fontWeight(.semibold)
-                    }
-                    .multilineTextAlignment(.center)
-                    .font(.footnote)
-                    .frame(width: 100)
+                    RequirementStack(user: user, requirement: .startDate)
                     
                     Divider()
                     
-                    VStack(spacing: 18) {
-                        Text("Weekly Requirements")
-                            .lineLimit(2)
-                        
-                        Text("\(weeklyRequirementString)")
-                            .fontWeight(.semibold)
-                    }
-                    .multilineTextAlignment(.center)
-                    .font(.footnote)
-                    .frame(width: 100)
+                    RequirementStack(user: user, requirement: .eligibleDays)
+                    
+                    Divider()
+                    
+                    RequirementStack(user: user, requirement: .totalDays)
                 }
                 .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 
@@ -100,16 +72,5 @@ struct ProfileView: View {
 #Preview {
     NavigationStack {
         ProfileView(viewModel: MainTabViewModel(user: User.PROFILE_MOCK_USER))
-    }
-}
-
-extension ProfileView {
-    var weeklyRequirementString: String {
-        guard let totalRequirements = user.weeklyRequirementTotal else {
-            return "UNKNOWN"
-        }
-        
-        let suffix = totalRequirements > 1 ? "days" : "day"
-        return "\(totalRequirements) \(suffix)"
     }
 }
