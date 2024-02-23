@@ -31,7 +31,7 @@ enum InputComponent {
             if workdays.isEmpty {
                 return "Select Eligible Workdays"
             } else {
-                return workdays.sorted{$0.rawValue < $1.rawValue}.map{$0.label}.joined(separator: ", ")
+                return workdays.asSortedHyTrackerString
             }
         case .requiredDaysCount(let numberOfDays):
             if let numberOfDays = numberOfDays {
