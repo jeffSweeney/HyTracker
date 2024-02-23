@@ -29,12 +29,14 @@ struct HTPrimaryButton: View {
 enum Screen {
     case getStarted
     case login
+    case profile
     case signup
     
     var label: String {
         switch self {
         case .getStarted: "GET STARTED"
         case .login: "LOG IN"
+        case .profile: "EDIT REQUIREMENTS"
         case .signup: "SIGN UP"
         }
     }
