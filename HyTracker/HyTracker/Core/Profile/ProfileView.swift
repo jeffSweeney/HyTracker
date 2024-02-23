@@ -13,51 +13,103 @@ struct ProfileView: View {
     var user: User { return viewModel.user }
     
     var body: some View {
-        VStack {
-            HTLogoView(size: .normal)
-                .padding(.vertical)
-            
-            VStack(spacing: 8) {
-                Text("ProfileView")
-                Text("UNDER CONSTRUCTION")
-            }
-            .padding(.vertical)
-            
-            Text("Welcome, \(user.fullname)!")
-            
-            VStack(spacing: 4) {
-                Text("Current Data")
-                    .underline()
+        NavigationStack {
+            VStack {
+                VStack(spacing: 24) {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .foregroundStyle(Color.hyTrackerBlue)
+                    
+                    Text(user.fullname)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                }
+                .padding(.vertical, 40)
                 
-                Text("Email: \(user.email)")
-                Text("Has Onboarded: \(user.hasOnboarded.description)")
-                Text("Start date: \(user.startDate?.asHyTrackerDate ?? "UNKNOWN")")
-                Text("Workdays: \(user.eligibleDays?.sorted{$0.rawValue < $1.rawValue}.map{$0.label}.joined(separator: ", ") ?? "UNKNOWN")")
-                Text("Weekly Requirements: \(user.weeklyRequirementTotal?.description ?? "UNKNOWN")")
+                HStack(alignment: .top) {
+                    VStack(spacing: 18) {
+                        Text("Analytics Start Date")
+                            .lineLimit(2)
+                        
+                        Text(user.startDate?.asHyTrackerDate ?? "UNKNOWN")
+                            .fontWeight(.semibold)
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .frame(width: 100)
+                    
+                    Divider()
+                        .foregroundStyle(Color.hyTrackerBlue)
+                    
+                    VStack(spacing: 18) {
+                        Text("Eligible Office Days")
+                            .lineLimit(2)
+                        
+                        Text(user.eligibleDays?.asSortedHyTrackerString ?? "UNKNOWN")
+                            .fontWeight(.semibold)
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .frame(width: 100)
+                    
+                    Divider()
+                    
+                    VStack(spacing: 18) {
+                        Text("Weekly Requirements")
+                            .lineLimit(2)
+                        
+                        Text("\(weeklyRequirementString)")
+                            .fontWeight(.semibold)
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .frame(width: 100)
+                }
+                .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                
+                Button(action: {
+                    print("DEBUG: Tapped EDIT REQUIREMENTS")
+                }, label: {
+                    HTPrimaryButton(screen: .profile, isActionable: true)
+                })
+                .padding(.top, 40)
             }
-            .padding(.vertical)
-            
-            Button(action: {
-                AuthService.shared.signOut()
-            }, label: {
-                Text("SIGN OUT")
-                    .font(.headline)
-                    .foregroundStyle(.black)
-                    .frame(width: 300, height: 40)
-                    .overlay {
-                        Capsule()
-                            .stroke(lineWidth: 2)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .modifier(HyTrackerGradient())
+            .navigationTitle("PROFILE")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        AuthService.shared.signOut()
+                    } label: {
+                        Text("SIGN OUT")
+                            .font(.footnote)
                             .foregroundStyle(.black)
                     }
-                    .padding()
-            })
+
+                }
+            }
+            .fontDesign(.serif)
         }
-        .fontDesign(.serif)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(HyTrackerGradient())
     }
 }
 
 #Preview {
-    ProfileView(viewModel: MainTabViewModel(user: User.MOCK_USER))
+    NavigationStack {
+        ProfileView(viewModel: MainTabViewModel(user: User.PROFILE_MOCK_USER))
+    }
+}
+
+extension ProfileView {
+    var weeklyRequirementString: String {
+        guard let totalRequirements = user.weeklyRequirementTotal else {
+            return "UNKNOWN"
+        }
+        
+        let suffix = totalRequirements > 1 ? "days" : "day"
+        return "\(totalRequirements) \(suffix)"
+    }
 }

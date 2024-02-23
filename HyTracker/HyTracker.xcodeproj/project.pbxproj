@@ -70,6 +70,7 @@
 		E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB22B87C411007E542E /* User+MockData.swift */; };
 		E0C21CB52B87CEAF007E542E /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */; };
 		E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */; };
+		E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		E0C21CB22B87C411007E542E /* User+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+MockData.swift"; sourceTree = "<group>"; };
 		E0C21CB42B87CEAF007E542E /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HyTracker.swift"; sourceTree = "<group>"; };
+		E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+HyTracker.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
 				E0C21CB22B87C411007E542E /* User+MockData.swift */,
 				E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */,
+				E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 				E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */,
+				E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */,
 				E0C21CB52B87CEAF007E542E /* MainTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
