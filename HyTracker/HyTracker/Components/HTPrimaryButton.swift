@@ -27,6 +27,7 @@ struct HTPrimaryButton: View {
 }
 
 enum Screen {
+    case generateReport
     case getStarted
     case login
     case profile
@@ -34,6 +35,7 @@ enum Screen {
     
     var label: String {
         switch self {
+        case .generateReport: "GENERATE REPORT"
         case .getStarted: "GET STARTED"
         case .login: "LOG IN"
         case .profile: "EDIT REQUIREMENTS"
