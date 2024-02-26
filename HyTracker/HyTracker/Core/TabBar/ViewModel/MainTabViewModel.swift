@@ -46,23 +46,27 @@ extension MainTabViewModel {
         reportStartDate ... Date.now
     }
     
-    // TODO: Add back when we're ready to use
-//    var weeklyRequirementTotal: Int {
-//        user.weeklyRequirementTotal ?? 0 // Onboarding required - should never be nil
-//    }
-//    
-//    var eligibleDaysSorted: String {
-//        user.eligibleDays?.asSortedHyTrackerString ?? "" // Onboarding required - should never be nil
-//    }
-//    
-//    var targetPercentage: String {
-//        guard weeklyRequirementTotal != 0, let eligibleDays = user.eligibleDays, eligibleDays.count != 0, eligibleDays.count >= weeklyRequirementTotal else {
-//            return "ERROR" // Shouldn't be reachable. Something has gone wrong. Probably throw?
-//        }
-//        
-//        let result = round(Double(weeklyRequirementTotal)/Double(eligibleDays.count)*100)
-//        return "\(String(format: "%.0f", result))%"
-//    }
+    var weeklyRequirementTotal: Int {
+        user.weeklyRequirementTotal ?? 0 // Onboarding required - should never be nil
+    }
+    
+    var eligibleDaysSorted: String {
+        user.eligibleDays?.asSortedHyTrackerString ?? "" // Onboarding required - should never be nil
+    }
+    
+    var targetPercentage: String {
+        guard weeklyRequirementTotal != 0, let eligibleDays = user.eligibleDays, eligibleDays.count != 0, eligibleDays.count >= weeklyRequirementTotal else {
+            return "ERROR" // Shouldn't be reachable. Something has gone wrong. Probably throw?
+        }
+        
+        let result = round(Double(weeklyRequirementTotal)/Double(eligibleDays.count)*100)
+        return "\(String(format: "%.0f", result))%"
+    }
+    
+    var actualPercentage: String {
+        // TODO: Calculate
+        return "75%"
+    }
 }
 
 // MARK: - Generate Report Functions
