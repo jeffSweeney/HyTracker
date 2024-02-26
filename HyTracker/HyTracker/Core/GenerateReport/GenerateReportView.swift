@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GenerateReportView: View {
     @ObservedObject var viewModel: MainTabViewModel
+    @State private var showingReport = false
+    @State private var primaryDisabled = false
     
     var body: some View {
         VStack {
@@ -17,20 +19,6 @@ struct GenerateReportView: View {
             
             VStack(spacing: 16) {
                 Text("Generating a report will examine all non-exempt eligible workdays in your provided range, and calculate the percentage of those days you were in-office.")
-                
-                // TODO: The code below might be better in the report sheet?
-//                HStack(spacing: 2) {
-//                    Text("Your target percentage is determined by your weekly commitment (") +
-//                    Text("\(viewModel.weeklyRequirementTotal) days").bold() +
-//                    Text(") divided by the number of eligible days (") +
-//                    Text(viewModel.eligibleDaysSorted).bold() +
-//                    Text(") in a typical work week of non-exempt days.")
-//                }
-//                
-//                HStack(spacing: 2) {
-//                    Text("Target percentage: ") +
-//                    Text(viewModel.targetPercentage).bold()
-//                }
             }
             .font(.subheadline)
             .multilineTextAlignment(.center)
@@ -41,26 +29,35 @@ struct GenerateReportView: View {
                     Text("Start Range:")
                         .font(.headline)
                 }
+                .onTapGesture { primaryDisabled = true }
                 
                 DatePicker(selection: $viewModel.reportEndDate, in: viewModel.reportEndRange, displayedComponents: .date) {
                     Text("End Range:")
                         .font(.headline)
                 }
+                .onTapGesture { primaryDisabled = true }
             }
             .padding()
             .padding(.horizontal, 24)
             
             
             Button(action: {
-                print("DEBUG: Tapped Generate Report")
+                showingReport = true
             }, label: {
                 HTPrimaryButton(screen: .generateReport, isActionable: true)
             })
-            .padding(.top, 40)
+            .disabled(primaryDisabled)
+            .padding(.vertical, 40)
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
+        .sheet(isPresented: $showingReport) {
+            ReportView(viewModel: viewModel, showingReport: $showingReport)
+        }
+        .onTapGesture {
+            primaryDisabled = false
+        }
     }
 }
 

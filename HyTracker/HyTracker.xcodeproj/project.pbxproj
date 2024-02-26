@@ -72,6 +72,7 @@
 		E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */; };
 		E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */; };
 		E0C21CBD2B894398007E542E /* RequirementStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CBC2B894398007E542E /* RequirementStack.swift */; };
+		E0C21CC12B8C202D007E542E /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CC02B8C202D007E542E /* ReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HyTracker.swift"; sourceTree = "<group>"; };
 		E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+HyTracker.swift"; sourceTree = "<group>"; };
 		E0C21CBC2B894398007E542E /* RequirementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementStack.swift; sourceTree = "<group>"; };
+		E0C21CC02B8C202D007E542E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C21CA52B87C31C007E542E /* GenerateReportView.swift */,
+				E0C21CC22B8C20F1007E542E /* Sheets */,
 			);
 			path = GenerateReport;
 			sourceTree = "<group>";
@@ -437,6 +440,14 @@
 				E0C21CBC2B894398007E542E /* RequirementStack.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E0C21CC22B8C20F1007E542E /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CC02B8C202D007E542E /* ReportView.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +567,7 @@
 				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
 				E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,
+				E0C21CC12B8C202D007E542E /* ReportView.swift in Sources */,
 				E03E940A2B79176B00FF01D0 /* Weekday.swift in Sources */,
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
