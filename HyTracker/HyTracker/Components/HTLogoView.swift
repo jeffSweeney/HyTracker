@@ -20,10 +20,12 @@ struct HTLogoView: View {
 }
 
 enum HTLogoSize {
+    case small
     case normal
     
     var dimension: CGFloat {
         switch self {
+        case .small: 120
         case .normal: 150
         }
     }
