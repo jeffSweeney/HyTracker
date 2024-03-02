@@ -18,7 +18,7 @@ class MainTabViewModel: ObservableObject {
     
     init(user: User) {
         self.user = user
-        self.reportStartDate = user.startDate ?? Date.now
+        self.reportStartDate = Self.defaultReportStartDate(for: user)
         self.reportEndDate = Date.now
         
         setupSubscribers()
@@ -71,7 +71,21 @@ extension MainTabViewModel {
 
 // MARK: - Generate Report Functions
 extension MainTabViewModel {
-    
+    /// `defaultReportStartDate`
+    /// Derives a manageable default report start date - 4 weeks (or less if analytics start date is more recent).
+    /// If we simply use analytics start date as the default, over time, this will lead to a massive difference in report default start/end date.
+    private static func defaultReportStartDate(for user: User) -> Date {
+        let today = Date.now
+        let fourWeeksAgo = Calendar.current.date(byAdding: .weekOfYear, value: -4, to: today)
+        let earliestStartDate = user.startDate ?? today
+        
+        // Only able to set 4 weeks ago if earliestStartDate is older than 4 weeks ago.
+        if let fourWeeksAgo, fourWeeksAgo > earliestStartDate {
+            return fourWeeksAgo
+        } else {
+            return earliestStartDate
+        }
+    }
 }
 
 // MARK: - Profile Functions
