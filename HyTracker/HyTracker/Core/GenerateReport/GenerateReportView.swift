@@ -10,6 +10,9 @@ import SwiftUI
 struct GenerateReportView: View {
     @ObservedObject var viewModel: MainTabViewModel
     @State private var showingReport = false
+    
+    // Managing button eligibility state due to SwiftUI DatePicker bug
+    // Bug: If you tap out of DatePicker (dismiss it) and hit the primary button, which presents a sheet, primary will no longer work due to "already presenting sheet (picker)" error.
     @State private var primaryDisabled = false
     
     var body: some View {
