@@ -36,5 +36,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(user: User.BASIC_MOCK_USER)
+    MainTabView(user: User.REPORT_MOCK_USER)
 }
