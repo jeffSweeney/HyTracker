@@ -26,7 +26,7 @@ enum InputComponent {
     var textLabel: String {
         switch self {
         case .startDate(let date):
-            return date?.asHyTrackerDate ?? "Select Starting Range"
+            return date?.asMediumHyTrackerDate ?? "Select Starting Range"
         case .eligibleWorkdays(let workdays):
             if workdays.isEmpty {
                 return "Select Eligible Workdays"

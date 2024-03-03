@@ -51,7 +51,7 @@ enum RequirementComponent {
         
         switch self {
         case .startDate:
-            result = user.startDate?.asHyTrackerDate
+            result = user.startDate?.asMediumHyTrackerDate
         case .eligibleDays:
             result = user.eligibleDays?.asSortedHyTrackerString
         case .totalDays:

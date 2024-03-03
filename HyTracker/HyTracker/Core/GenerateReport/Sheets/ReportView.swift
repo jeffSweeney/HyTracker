@@ -20,7 +20,7 @@ struct ReportView: View {
                     Text("Report")
                         .underline()
                     
-                    Text("\(viewModel.reportStartDate.asHyTrackerDate) - \(viewModel.reportEndDate.asHyTrackerDate)")
+                    Text("\(viewModel.reportStartDate.asMediumHyTrackerDate) - \(viewModel.reportEndDate.asMediumHyTrackerDate)")
                 }
                 .font(.headline)
                 .padding(.bottom)
