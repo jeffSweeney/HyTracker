@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TrackDaysView: View {
     @ObservedObject var viewModel: MainTabViewModel
-    @State private var numsChecked: Set<Int> = []
     
     var body: some View {
         VStack {
@@ -31,23 +30,55 @@ struct TrackDaysView: View {
                     
                     HStack(spacing: 0) {
                         Button(action: {
-                            print("DEBUG: Tapped In-Office")
+                            print("DEBUG: Tapped QT In-Office")
                         }, label: {
                             HTPrimaryButton(style: .split, screen: .inOffice, isActionable: true)
                         })
                         
                         Button(action: {
-                            print("DEBUG: Tapped Exempt")
+                            print("DEBUG: Tapped QT Exempt")
                         }, label: {
                             HTPrimaryButton(style: .split, screen: .exempt, isActionable: true)
                         })
                     }
                 }
                 
-                // TODO: --- OR ---
+                HStack {
+                    Rectangle()
+                        .frame(height: 1)
+                    
+                    Text("OR")
+                        .font(.subheadline)
+                    
+                    Rectangle()
+                        .frame(height: 1)
+                }
+                .padding(.horizontal, 24)
                 
-                // TODO: Bulk Uploads
+                VStack(spacing: 8) {
+                    Text("Bulk Track")
+                        .font(.headline)
+                    
+                    Text("Update multiple days at once")
+                        .font(.subheadline)
+                    
+                    HStack(spacing: 0) {
+                        Button(action: {
+                            print("DEBUG: Tapped BT In-Office")
+                        }, label: {
+                            HTPrimaryButton(style: .split, screen: .inOffice, isActionable: true)
+                        })
+                        
+                        Button(action: {
+                            print("DEBUG: Tapped BT Exempt")
+                        }, label: {
+                            HTPrimaryButton(style: .split, screen: .exempt, isActionable: true)
+                        })
+                    }
+                }
             }
+            
+            Spacer()
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
