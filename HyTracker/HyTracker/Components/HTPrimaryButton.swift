@@ -33,6 +33,7 @@ enum Screen {
     case login
     case profile
     case signup
+    case trackDays
     
     var label: String {
         switch self {
@@ -42,6 +43,7 @@ enum Screen {
         case .login: "LOG IN"
         case .profile: "EDIT REQUIREMENTS"
         case .signup: "SIGN UP"
+        case .trackDays: "TRACK DAYS"
         }
     }
 }
