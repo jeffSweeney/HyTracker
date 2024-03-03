@@ -16,8 +16,8 @@ struct User: Codable, Identifiable, Hashable {
     var startDate: Date?
     var eligibleDays: Set<Weekday>?
     var weeklyRequirementTotal: Int?
-    var exemptDays: Set<Date>? // PTO, Sick, etc
     var inOfficeDays: Set<Date>? // Actual days in office
+    var exemptDays: Set<Date>? // PTO, Sick, etc
     
     init(id: String, 
          email: String,
@@ -27,8 +27,8 @@ struct User: Codable, Identifiable, Hashable {
          startDate: Date? = nil,
          eligibleDays: Set<Weekday>? = nil,
          weeklyRequirementTotal: Int? = nil,
-         exemptDays: Set<Date>? = nil,
-         inOfficeDays: Set<Date>? = nil
+         inOfficeDays: Set<Date>? = nil,
+         exemptDays: Set<Date>? = nil
     ) {
         self.id = id
         self.email = email
@@ -38,8 +38,8 @@ struct User: Codable, Identifiable, Hashable {
         self.startDate = startDate
         self.eligibleDays = eligibleDays
         self.weeklyRequirementTotal = weeklyRequirementTotal
-        self.exemptDays = exemptDays
         self.inOfficeDays = inOfficeDays
+        self.exemptDays = exemptDays
     }
     
     enum CodingKeys: String, CodingKey {
@@ -79,16 +79,16 @@ extension User {
             eligibleDays = nil
         }
         
-        if let exemptDaysArray = try container.decodeIfPresent([Date].self, forKey: .exemptDays) {
-            exemptDays = Set(exemptDaysArray)
-        } else {
-            exemptDays = nil
-        }
-        
         if let inOfficeDaysArray = try container.decodeIfPresent([Date].self, forKey: .inOfficeDays) {
             inOfficeDays = Set(inOfficeDaysArray)
         } else {
             inOfficeDays = nil
+        }
+        
+        if let exemptDaysArray = try container.decodeIfPresent([Date].self, forKey: .exemptDays) {
+            exemptDays = Set(exemptDaysArray)
+        } else {
+            exemptDays = nil
         }
     }
 }
@@ -113,11 +113,11 @@ extension User {
         let eligibleDaysArray = eligibleDays?.map { $0.rawValue }
         try container.encodeIfPresent(eligibleDaysArray, forKey: .eligibleDays)
         
-        let exemptDaysArray = exemptDays?.map { $0 }
-        try container.encodeIfPresent(exemptDaysArray, forKey: .exemptDays)
-
         let inOfficeDaysArray = inOfficeDays?.map { $0 }
         try container.encodeIfPresent(inOfficeDaysArray, forKey: .inOfficeDays)
+        
+        let exemptDaysArray = exemptDays?.map { $0 }
+        try container.encodeIfPresent(exemptDaysArray, forKey: .exemptDays)
     }
 }
 
