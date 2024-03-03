@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct HTPrimaryButton: View {
+    let style: PrimaryStyle
     let screen: Screen
     let isActionable: Bool
+    
+    init(style: PrimaryStyle = .full, screen: Screen, isActionable: Bool) {
+        self.style = style
+        self.screen = screen
+        self.isActionable = isActionable
+    }
     
     var body: some View {
         Text(screen.label)
             .font(.headline)
             .foregroundStyle(.black)
-            .frame(width: 300, height: 40)
+            .frame(width: style.width, height: 40)
             .overlay {
                 Capsule()
                     .stroke(lineWidth: 2)
@@ -28,8 +35,10 @@ struct HTPrimaryButton: View {
 
 enum Screen {
     case done
+    case exempt
     case generateReport
     case getStarted
+    case inOffice
     case login
     case profile
     case signup
@@ -38,12 +47,26 @@ enum Screen {
     var label: String {
         switch self {
         case .done: "DONE"
+        case .exempt: "Exempt" // Split style - ALL CAPS not preferred
         case .generateReport: "GENERATE REPORT"
         case .getStarted: "GET STARTED"
+        case .inOffice: "In-Office" // Split style - ALL CAPS not preferred
         case .login: "LOG IN"
         case .profile: "EDIT REQUIREMENTS"
         case .signup: "SIGN UP"
-        case .trackDays: "TRACK DAYS"
+        case .trackDays: "TRACK UPDATES" // TODO: Probably remove this one?
+        }
+    }
+}
+
+enum PrimaryStyle {
+    case full
+    case split
+    
+    var width: CGFloat {
+        switch self {
+        case .full: return 300
+        case .split: return 150
         }
     }
 }
