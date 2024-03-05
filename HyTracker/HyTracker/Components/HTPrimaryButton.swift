@@ -12,7 +12,7 @@ struct HTPrimaryButton: View {
     let screen: Screen
     let isActionable: Bool
     
-    init(style: PrimaryStyle = .full, screen: Screen, isActionable: Bool) {
+    init(screen: Screen, isActionable: Bool, style: PrimaryStyle = .full) {
         self.style = style
         self.screen = screen
         self.isActionable = isActionable

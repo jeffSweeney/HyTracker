@@ -63,8 +63,7 @@
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
 		E03E94722B86400900FF01D0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94712B86400900FF01D0 /* UserService.swift */; };
-		E07E96412B94220F00A6CE90 /* BulkOfficeUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E96402B94220F00A6CE90 /* BulkOfficeUpdatesView.swift */; };
-		E07E96432B94222000A6CE90 /* BulkExemptUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E96422B94222000A6CE90 /* BulkExemptUpdateView.swift */; };
+		E07E96452B94BAB000A6CE90 /* BulkUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E96442B94BAB000A6CE90 /* BulkUpdatesView.swift */; };
 		E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA02B87C2C6007E542E /* MainTabView.swift */; };
 		E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA32B87C312007E542E /* TrackDaysView.swift */; };
 		E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA52B87C31C007E542E /* GenerateReportView.swift */; };
@@ -108,8 +107,7 @@
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E03E94712B86400900FF01D0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		E07E96402B94220F00A6CE90 /* BulkOfficeUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkOfficeUpdatesView.swift; sourceTree = "<group>"; };
-		E07E96422B94222000A6CE90 /* BulkExemptUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkExemptUpdateView.swift; sourceTree = "<group>"; };
+		E07E96442B94BAB000A6CE90 /* BulkUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkUpdatesView.swift; sourceTree = "<group>"; };
 		E0C21CA02B87C2C6007E542E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E0C21CA32B87C312007E542E /* TrackDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDaysView.swift; sourceTree = "<group>"; };
 		E0C21CA52B87C31C007E542E /* GenerateReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportView.swift; sourceTree = "<group>"; };
@@ -415,8 +413,7 @@
 		E0C21CA92B87C343007E542E /* TrackDays */ = {
 			isa = PBXGroup;
 			children = (
-				E07E96422B94222000A6CE90 /* BulkExemptUpdateView.swift */,
-				E07E96402B94220F00A6CE90 /* BulkOfficeUpdatesView.swift */,
+				E07E96442B94BAB000A6CE90 /* BulkUpdatesView.swift */,
 				E0C21CA32B87C312007E542E /* TrackDaysView.swift */,
 			);
 			path = TrackDays;
@@ -561,7 +558,6 @@
 			files = (
 				E03E94702B826A4500FF01D0 /* User.swift in Sources */,
 				E03E94102B7925F500FF01D0 /* Date+HyTracker.swift in Sources */,
-				E07E96432B94222000A6CE90 /* BulkExemptUpdateView.swift in Sources */,
 				E03E94722B86400900FF01D0 /* UserService.swift in Sources */,
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */,
@@ -579,6 +575,7 @@
 				E03E93E12B7808C700FF01D0 /* ContentView.swift in Sources */,
 				E03E94122B792E7800FF01D0 /* InputComponent.swift in Sources */,
 				E0C21CA82B87C32C007E542E /* ProfileView.swift in Sources */,
+				E07E96452B94BAB000A6CE90 /* BulkUpdatesView.swift in Sources */,
 				E0C21CB72B87DE19007E542E /* Color+HyTracker.swift in Sources */,
 				E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */,
 				E03E94142B79564A00FF01D0 /* StartDateSelectorSheet.swift in Sources */,
@@ -590,7 +587,6 @@
 				E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */,
 				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,
 				E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */,
-				E07E96412B94220F00A6CE90 /* BulkOfficeUpdatesView.swift in Sources */,
 				E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */,
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
