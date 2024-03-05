@@ -22,4 +22,37 @@ extension Date {
     var asMediumHyTrackerDate: String { return asHyTrackerDate(style: .medium) }
     var asLongHyTrackerDate: String { return asHyTrackerDate(style: .long) }
     var asFullHyTrackerDate: String { return asHyTrackerDate(style: .full) }
+    
+    var dayOfTheWeek: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        
+        return dateFormatter.string(from: self)
+    }
+    
+    var sixDigitDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        
+        return dateFormatter.string(from: self)
+    }
+    
+    var asWeekday: Weekday? {
+        let weekdayIndex = Calendar.current.component(.weekday, from: self)
+        
+        switch weekdayIndex {
+        case 2:
+            return .monday
+        case 3:
+            return .tuesday
+        case 4: 
+            return .wednesday
+        case 5:
+            return .thursday
+        case 6:
+            return .friday
+        default:
+            return nil
+        }
+    }
 }
