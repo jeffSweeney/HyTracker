@@ -55,4 +55,12 @@ extension Date {
             return nil
         }
     }
+    
+    var asSimpleDate: SimpleDate {
+        let year = Calendar.current.component(.year, from: self)
+        let month = Calendar.current.component(.month, from: self)
+        let day = Calendar.current.component(.day, from: self)
+    
+        return SimpleDate(month: month, day: day, year: year)
+    }
 }

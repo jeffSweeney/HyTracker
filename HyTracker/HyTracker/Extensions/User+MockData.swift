@@ -29,4 +29,23 @@ extension User {
                                        startDate: Self.oneMonthAgo,
                                        eligibleDays: [.tuesday, .wednesday, .thursday],
                                        weeklyRequirementTotal: 2)
+    
+    static let TRACK_MOCK_USER = User(id: UUID().uuidString,
+                                      email: "Jeff@test.com",
+                                      fullname: "Jeff Sweeney",
+                                      hasOnboarded: true,
+                                      startDate: Self.oneMonthAgo,
+                                      eligibleDays: [.tuesday, .wednesday, .thursday],
+                                      weeklyRequirementTotal: 2,
+                                      inOfficeDays: Self.evenDaysAgo(),
+                                      exemptDays: Self.evenDaysAgo())
+    
+    private static func evenDaysAgo() -> Set<Date> {
+        let evenDays = (2...30).filter { $0 % 2 == 0 }
+        
+        return evenDays.reduce(into: Set<Date>()) { (result: inout Set<Date>, daysAgo) in
+            let date = Calendar.current.date(byAdding: .day, value: -daysAgo, to: today)!
+            result.insert(date)
+        }
+    }
 }

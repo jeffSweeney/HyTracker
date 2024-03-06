@@ -65,13 +65,13 @@ struct TrackDaysView: View {
                         
                         HStack(spacing: 0) {
                             NavigationLink {
-                                BulkUpdatesView(context: .inOffice)
+                                BulkUpdatesView(context: .inOffice, viewModel: viewModel)
                             } label: {
                                 HTPrimaryButton(screen: .inOffice, isActionable: true, style: .split)
                             }
                             
                             NavigationLink {
-                                BulkUpdatesView(context: .exempt)
+                                BulkUpdatesView(context: .exempt, viewModel: viewModel)
                             } label: {
                                 HTPrimaryButton(screen: .exempt, isActionable: true, style: .split)
                             }

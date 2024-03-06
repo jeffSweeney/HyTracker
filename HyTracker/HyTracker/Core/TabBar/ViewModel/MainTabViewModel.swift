@@ -32,12 +32,47 @@ class MainTabViewModel: ObservableObject {
     }
 }
 
-// MARK: - Track Days Functions
+// MARK: - Common Functions and Properties
 extension MainTabViewModel {
-    
+    var eligibleDaysSorted: String {
+        user.eligibleDays?.asSortedHyTrackerString ?? "" // Onboarding required - should never be nil
+    }
 }
 
-// MARK: - Generate Report Functions
+// MARK: - Track Days Functions and Properties
+extension MainTabViewModel {
+    private func bulkUpdateRange(endDate: Date) -> [Date] {
+        let eligibleDays = user.eligibleDays ?? []
+        let today = Date.now
+        var currentDate = user.startDate ?? today
+        
+        let calendar = Calendar.current
+        let components = DateComponents(day: 1)
+        var result: Set<Date> = []
+        
+        while currentDate <= endDate {
+            if let currentDay = currentDate.asWeekday, eligibleDays.contains(currentDay) {
+                result.insert(currentDate)
+            }
+            
+            if let nextDate = calendar.date(byAdding: components, to: currentDate) {
+                currentDate = nextDate
+            } else {
+                break
+            }
+        }
+        
+        return result.sorted { $0 > $1 }
+    }
+    
+    var inOfficeRange: [Date] { return bulkUpdateRange(endDate: Date.now) }
+    var exemptRange: [Date] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: Date.now) ?? Date.now) }
+    
+    var inOfficeSimpleDates: Set<SimpleDate> { Set(user.inOfficeDays?.map { $0.asSimpleDate } ?? []) }
+    var exemptSimpleDates: Set<SimpleDate> { Set(user.exemptDays?.map { $0.asSimpleDate } ?? []) }
+}
+
+// MARK: - Generate Report Functions and Properties
 extension MainTabViewModel {
     /// `defaultReportStartDate`
     /// Derives a manageable default report start date - 4 weeks (or less if analytics start date is more recent).
@@ -71,10 +106,6 @@ extension MainTabViewModel {
         user.weeklyRequirementTotal ?? 0 // Onboarding required - should never be nil
     }
     
-    var eligibleDaysSorted: String {
-        user.eligibleDays?.asSortedHyTrackerString ?? "" // Onboarding required - should never be nil
-    }
-    
     var targetPercentage: String {
         guard weeklyRequirementTotal != 0, let eligibleDays = user.eligibleDays, eligibleDays.count != 0, eligibleDays.count >= weeklyRequirementTotal else {
             return "ERROR" // Shouldn't be reachable. Something has gone wrong. Probably throw?
@@ -90,7 +121,7 @@ extension MainTabViewModel {
     }
 }
 
-// MARK: - Profile Functions
+// MARK: - Profile Functions and Properties
 extension MainTabViewModel {
     
 }

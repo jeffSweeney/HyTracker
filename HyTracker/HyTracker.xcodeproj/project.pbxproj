@@ -74,6 +74,7 @@
 		E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */; };
 		E0C21CBD2B894398007E542E /* RequirementStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CBC2B894398007E542E /* RequirementStack.swift */; };
 		E0C21CC12B8C202D007E542E /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CC02B8C202D007E542E /* ReportView.swift */; };
+		E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+HyTracker.swift"; sourceTree = "<group>"; };
 		E0C21CBC2B894398007E542E /* RequirementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementStack.swift; sourceTree = "<group>"; };
 		E0C21CC02B8C202D007E542E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E946F2B826A4500FF01D0 /* User.swift */,
+				E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */,
 				E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */,
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
+				E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 				E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */,
 				E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */,

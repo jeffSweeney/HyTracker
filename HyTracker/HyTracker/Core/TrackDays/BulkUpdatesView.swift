@@ -9,10 +9,17 @@ import SwiftUI
 
 struct BulkUpdatesView: View {
     let context: BulkUpdateType
+    private let range: [Date]
     
-    // TODO: Replace with view model data
-    @State private var range: [Date] = Self.dummyRange()
-    @State private var datesChecked: Set<Date> = []
+    @ObservedObject var viewModel: MainTabViewModel
+    @State private var datesChecked: Set<SimpleDate>
+    
+    init(context: BulkUpdateType, viewModel: MainTabViewModel) {
+        self.context = context
+        _viewModel = ObservedObject(wrappedValue: viewModel)
+        range = context == .inOffice ? viewModel.inOfficeRange : viewModel.exemptRange
+        datesChecked = context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates
+    }
     
     var body: some View {
         ScrollView { // Smaller iPhones cram the button if VStack
@@ -27,7 +34,7 @@ struct BulkUpdatesView: View {
                     Text("Only showing days within your \"Eligible Workdays\" range:")
                     
                     // TODO: Make eligible days dynamic
-                    Text("Mon, Wed, Fri")
+                    Text(viewModel.eligibleDaysSorted)
                         .bold()
                 }
                 .font(.footnote)
@@ -38,38 +45,43 @@ struct BulkUpdatesView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     LazyVStack(spacing: 0) {
-                        ForEach(range, id: \.self) { date in
-                            VStack(spacing: 0) {
-                                HStack {
+                        if range.isEmpty {
+                            Text("No dates to display")
+                                .font(.headline)
+                        } else {
+                            ForEach(range, id: \.self) { date in
+                                VStack(spacing: 0) {
                                     HStack {
-                                        Text(date.dayOfTheWeek)
-                                            .frame(width: 64)
-                                        
-                                        Text(date.sixDigitDate)
-                                    }
-                                    .font(.subheadline)
-                                    
-                                    Spacer()
-                                    
-                                    let systemName = datesChecked.contains(date) ? "checkmark.square" : "square"
-                                    Image(systemName: systemName)
-                                        .padding(.horizontal)
-                                        .background(Color.clear)
-                                        .clipShape(Rectangle())
-                                        .onTapGesture {
-                                            if datesChecked.contains(date) {
-                                                datesChecked.remove(date)
-                                            } else {
-                                                datesChecked.insert(date)
-                                            }
+                                        HStack {
+                                            Text(date.dayOfTheWeek)
+                                                .frame(width: 64)
+                                            
+                                            Text(date.sixDigitDate)
                                         }
+                                        .font(.subheadline)
+                                        
+                                        Spacer()
+                                        
+                                        let systemName = datesChecked.contains(date.asSimpleDate) ? "checkmark.square" : "square"
+                                        Image(systemName: systemName)
+                                            .padding(.horizontal)
+                                            .background(Color.clear)
+                                            .clipShape(Rectangle())
+                                            .onTapGesture {
+                                                if datesChecked.contains(date.asSimpleDate) {
+                                                    datesChecked.remove(date.asSimpleDate)
+                                                } else {
+                                                    datesChecked.insert(date.asSimpleDate)
+                                                }
+                                            }
+                                    }
+                                    .padding(.horizontal, 4)
+                                    .contentShape(Rectangle())
+                                    .padding()
+                                    .background(Color.clear)
+                                    
+                                    Divider()
                                 }
-                                .padding(.horizontal, 4)
-                                .contentShape(Rectangle())
-                                .padding()
-                                .background(Color.clear)
-                                
-                                Divider()
                             }
                         }
                     }
@@ -82,7 +94,7 @@ struct BulkUpdatesView: View {
             }
             .padding()
             .padding(.horizontal)
-            .frame(height: 350)
+            .frame(maxHeight: 350)
             
             Button {
                 print("DEBUG: Tapped Track Days")
@@ -100,33 +112,9 @@ struct BulkUpdatesView: View {
     }
 }
 
-extension BulkUpdatesView {
-    private static func dummyRange() -> [Date] {
-        let today = Date.now
-        let twoMonthsAgo = Calendar.current.date(byAdding: .month, value: -2, to: today)!
-        var currentDate = twoMonthsAgo
-        
-        let calendar = Calendar.current
-        let components = DateComponents(day: 1)
-        var result: Set<Date> = []
-        
-        while currentDate <= today {
-            result.insert(currentDate)
-            
-            if let nextDate = calendar.date(byAdding: components, to: currentDate) {
-                currentDate = nextDate
-            } else {
-                break
-            }
-        }
-        
-        return result.sorted { $0 > $1 }
-    }
-}
-
 #Preview {
     NavigationStack {
-        BulkUpdatesView(context: .inOffice)
+        BulkUpdatesView(context: .exempt, viewModel: MainTabViewModel(user: .TRACK_MOCK_USER))
     }
 }
 
