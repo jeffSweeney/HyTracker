@@ -64,8 +64,19 @@ final class UserService: ObservableObject {
         }
     }
     
-    func updateCurrentUser() async throws {
-        // TODO: Implement
+    @MainActor
+    func updateCurrentUser(with modifiedUser: User) async throws {
+        do {
+            guard let currentUser, currentUser.id == modifiedUser.id else {
+                print("DEBUG: Failed to update current user")
+                return
+            } // TODO: Throw?
+            
+            try Firestore.firestore().collection(User.collectionName).document(currentUser.id).setData(from: modifiedUser, merge: true)
+            try await fetchCurrentUser()
+        } catch {
+            print("DEBUG: Issue updating current user with error \(error.localizedDescription)")
+        }
     }
     
     /// `signOut`

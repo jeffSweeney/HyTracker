@@ -24,4 +24,19 @@ struct SimpleDate: Codable, Hashable, Equatable {
         self.month = Calendar.current.component(.month, from: fromDate)
         self.day = Calendar.current.component(.day, from: fromDate)
     }
+    
+    func asDate() throws -> Date {
+        let calendar = Calendar.current
+        let components = DateComponents(year: self.year, month: self.month, day: self.day)
+        
+        if let date = calendar.date(from: components) {
+            return date
+        } else {
+            throw DateError.invalidFormat
+        }
+    }
+}
+
+enum DateError: Error {
+    case invalidFormat
 }

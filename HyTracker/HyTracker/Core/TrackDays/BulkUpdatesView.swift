@@ -12,13 +12,15 @@ struct BulkUpdatesView: View {
     private let range: [Date]
     
     @ObservedObject var viewModel: MainTabViewModel
-    @State private var datesChecked: Set<SimpleDate>
+    @State private var datesChecked: Set<SimpleDate> { didSet { madeChange() } }
+    
+    @Environment(\.dismiss) var dismiss
     
     init(context: BulkUpdateType, viewModel: MainTabViewModel) {
         self.context = context
         _viewModel = ObservedObject(wrappedValue: viewModel)
         range = context == .inOffice ? viewModel.inOfficeRange : viewModel.exemptRange
-        datesChecked = context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates
+        _datesChecked = State(initialValue: context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates)
     }
     
     var body: some View {
@@ -33,7 +35,6 @@ struct BulkUpdatesView: View {
                 Group {
                     Text("Only showing days within your \"Eligible Workdays\" range:")
                     
-                    // TODO: Make eligible days dynamic
                     Text(viewModel.eligibleDaysSorted)
                         .bold()
                 }
@@ -98,9 +99,16 @@ struct BulkUpdatesView: View {
             
             Button {
                 print("DEBUG: Tapped Track Days")
+                Task {
+                    try await context == .inOffice ? 
+                        viewModel.uploadOfficeDays(days: datesChecked) : viewModel.uploadExemptDays(days: datesChecked)
+                }
+                
+                dismiss()
             } label: {
-                HTPrimaryButton(screen: .trackDays, isActionable: true) // TODO: Dynamic actionable based on changes
+                HTPrimaryButton(screen: .trackDays, isActionable: viewModel.madeBulkTrackUpdates)
             }
+            .disabled(!viewModel.madeBulkTrackUpdates)
 
             Spacer()
         }
@@ -109,6 +117,13 @@ struct BulkUpdatesView: View {
         .modifier(HyTrackerGradient())
         .navigationTitle(context.navTitle)
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+extension BulkUpdatesView {
+    private func madeChange() {
+        let oldResult = context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates
+        viewModel.madeBulkTrackUpdates = oldResult != datesChecked
     }
 }
 
