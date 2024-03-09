@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 class GenerateReportViewModel: ObservableObject {
+    // MARK: - Publishers
     @Published var user: User
     @Published var reportStartDate: Date
     @Published var reportEndDate: Date
@@ -23,12 +24,15 @@ class GenerateReportViewModel: ObservableObject {
         setupSubscribers()
     }
     
+    // MARK: - Subscribers
     private func setupSubscribers() {
         UserService.shared.$currentUser
-            .compactMap{ $0 } // Don't accept nil to pass through
+            .compactMap{ $0 } // Do not allow nil sets
             .assign(to: \.user, on: self)
             .store(in: &cancellables)
     }
+
+    // MARK: - Helpers
     
     /// `defaultReportStartDate`
     /// Derives a manageable default report start date - 4 weeks (or less if analytics start date is more recent).
