@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ReportView: View {
-    @ObservedObject var viewModel: MainTabViewModel
-    @Binding var showingReport: Bool
+    @ObservedObject var viewModel: GenerateReportViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -59,7 +59,7 @@ struct ReportView: View {
                 .padding(.horizontal, 24)
                 
                 Button(action: {
-                    showingReport = false
+                    dismiss()
                 }, label: {
                     HTPrimaryButton(screen: .done, isActionable: true)
                 })
@@ -70,7 +70,7 @@ struct ReportView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
-                        showingReport = false
+                        dismiss()
                     }, label: {
                         Text("Dismiss")
                             .font(.subheadline)
@@ -86,6 +86,6 @@ struct ReportView: View {
 
 #Preview {
     NavigationStack {
-        ReportView(viewModel: MainTabViewModel(user: User.REPORT_MOCK_USER), showingReport: .constant(true))
+        ReportView(viewModel: GenerateReportViewModel(user: User.REPORT_MOCK_USER))
     }
 }

@@ -63,6 +63,7 @@
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
 		E03E94722B86400900FF01D0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94712B86400900FF01D0 /* UserService.swift */; };
+		E062F2532B9CEA4F00885AF3 /* GenerateReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062F2522B9CEA4F00885AF3 /* GenerateReportViewModel.swift */; };
 		E07E96452B94BAB000A6CE90 /* BulkUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E96442B94BAB000A6CE90 /* BulkUpdatesView.swift */; };
 		E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA02B87C2C6007E542E /* MainTabView.swift */; };
 		E0C21CA42B87C312007E542E /* TrackDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C21CA32B87C312007E542E /* TrackDaysView.swift */; };
@@ -108,6 +109,7 @@
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E03E94712B86400900FF01D0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E062F2522B9CEA4F00885AF3 /* GenerateReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportViewModel.swift; sourceTree = "<group>"; };
 		E07E96442B94BAB000A6CE90 /* BulkUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkUpdatesView.swift; sourceTree = "<group>"; };
 		E0C21CA02B87C2C6007E542E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E0C21CA32B87C312007E542E /* TrackDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDaysView.swift; sourceTree = "<group>"; };
@@ -413,6 +415,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E062F24E2B9CE8CE00885AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E062F2522B9CEA4F00885AF3 /* GenerateReportViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E062F24F2B9CE8D400885AF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CA52B87C31C007E542E /* GenerateReportView.swift */,
+				E0C21CC22B8C20F1007E542E /* Sheets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E0C21CA92B87C343007E542E /* TrackDays */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,8 +444,8 @@
 		E0C21CAA2B87C348007E542E /* GenerateReport */ = {
 			isa = PBXGroup;
 			children = (
-				E0C21CA52B87C31C007E542E /* GenerateReportView.swift */,
-				E0C21CC22B8C20F1007E542E /* Sheets */,
+				E062F24F2B9CE8D400885AF3 /* View */,
+				E062F24E2B9CE8CE00885AF3 /* ViewModel */,
 			);
 			path = GenerateReport;
 			sourceTree = "<group>";
@@ -593,6 +612,7 @@
 				E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */,
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */,
+				E062F2532B9CEA4F00885AF3 /* GenerateReportViewModel.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 				E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */,
 				E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */,

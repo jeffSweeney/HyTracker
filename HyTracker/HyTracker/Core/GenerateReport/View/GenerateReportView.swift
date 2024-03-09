@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct GenerateReportView: View {
-    @ObservedObject var viewModel: MainTabViewModel
+    @StateObject var viewModel: GenerateReportViewModel
     @State private var showingReport = false
     
     // Managing button eligibility state due to SwiftUI DatePicker bug
     // Bug: If you tap out of DatePicker (dismiss it) and hit the primary button, which presents a sheet, primary will no longer work due to "already presenting sheet (picker)" error.
     @State private var primaryDisabled = false
+    
+    init(user: User) {
+        _viewModel = StateObject(wrappedValue: GenerateReportViewModel(user: user))
+    }
     
     var body: some View {
         VStack {
@@ -56,7 +60,7 @@ struct GenerateReportView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(HyTrackerGradient())
         .sheet(isPresented: $showingReport) {
-            ReportView(viewModel: viewModel, showingReport: $showingReport)
+            ReportView(viewModel: viewModel)
         }
         .onTapGesture {
             primaryDisabled = false
@@ -65,5 +69,5 @@ struct GenerateReportView: View {
 }
 
 #Preview {
-    GenerateReportView(viewModel: MainTabViewModel(user: User.REPORT_MOCK_USER))
+    GenerateReportView(user: User.REPORT_MOCK_USER)
 }

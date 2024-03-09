@@ -21,7 +21,7 @@ struct MainTabView: View {
                     Label("Track", systemImage: "calendar.badge.clock")
                 }
             
-            GenerateReportView(viewModel: viewModel)
+            GenerateReportView(user: viewModel.user)
                 .tabItem {
                     Label("Report", systemImage: "chart.xyaxis.line")
                 }
