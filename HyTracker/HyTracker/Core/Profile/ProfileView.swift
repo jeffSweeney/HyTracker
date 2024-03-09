@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var viewModel: MainTabViewModel
-    
-    var user: User { return viewModel.user }
+    @State var user: User
     
     var body: some View {
         NavigationStack {
@@ -71,6 +69,6 @@ struct ProfileView: View {
 
 #Preview {
     NavigationStack {
-        ProfileView(viewModel: MainTabViewModel(user: User.PROFILE_MOCK_USER))
+        ProfileView(user: User.PROFILE_MOCK_USER)
     }
 }

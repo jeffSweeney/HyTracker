@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var viewModel: MainTabViewModel
+    @State private var currentUser: User
     
     init(user: User) {
-        _viewModel = StateObject(wrappedValue: MainTabViewModel(user: user))
+        _currentUser = State(wrappedValue: user)
     }
     
     var body: some View {
         TabView {
-            TrackDaysView(user: viewModel.user)
+            TrackDaysView(user: currentUser)
                 .tabItem {
                     Label("Track", systemImage: "calendar.badge.clock")
                 }
             
-            GenerateReportView(user: viewModel.user)
+            GenerateReportView(user: currentUser)
                 .tabItem {
                     Label("Report", systemImage: "chart.xyaxis.line")
                 }
             
-            ProfileView(viewModel: viewModel)
+            ProfileView(user: currentUser)
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
