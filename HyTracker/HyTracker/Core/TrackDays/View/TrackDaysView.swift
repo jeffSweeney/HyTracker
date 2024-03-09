@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct TrackDaysView: View {
-    @ObservedObject var viewModel: MainTabViewModel
+    @StateObject var viewModel: TrackDaysViewModel
+    
+    init(user: User) {
+        _viewModel = StateObject(wrappedValue: TrackDaysViewModel(user: user))
+    }
     
     var body: some View {
         NavigationStack {
@@ -89,5 +93,5 @@ struct TrackDaysView: View {
 }
 
 #Preview {
-    TrackDaysView(viewModel: MainTabViewModel(user: User.BASIC_MOCK_USER))
+    TrackDaysView(user: User.BASIC_MOCK_USER)
 }

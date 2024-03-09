@@ -16,7 +16,7 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            TrackDaysView(viewModel: viewModel)
+            TrackDaysView(user: viewModel.user)
                 .tabItem {
                     Label("Track", systemImage: "calendar.badge.clock")
                 }

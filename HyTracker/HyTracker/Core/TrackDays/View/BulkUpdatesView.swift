@@ -11,12 +11,12 @@ struct BulkUpdatesView: View {
     let context: BulkUpdateType
     private let range: [Date]
     
-    @ObservedObject var viewModel: MainTabViewModel
+    @ObservedObject var viewModel: TrackDaysViewModel
     @State private var datesChecked: Set<SimpleDate> { didSet { madeChange() } }
     
     @Environment(\.dismiss) var dismiss
     
-    init(context: BulkUpdateType, viewModel: MainTabViewModel) {
+    init(context: BulkUpdateType, viewModel: TrackDaysViewModel) {
         self.context = context
         _viewModel = ObservedObject(wrappedValue: viewModel)
         range = context == .inOffice ? viewModel.inOfficeRange : viewModel.exemptRange
@@ -129,7 +129,7 @@ extension BulkUpdatesView {
 
 #Preview {
     NavigationStack {
-        BulkUpdatesView(context: .exempt, viewModel: MainTabViewModel(user: .TRACK_MOCK_USER))
+        BulkUpdatesView(context: .exempt, viewModel: TrackDaysViewModel(user: .TRACK_MOCK_USER))
     }
 }
 
