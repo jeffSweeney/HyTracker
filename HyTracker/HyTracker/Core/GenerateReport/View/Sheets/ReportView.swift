@@ -49,13 +49,15 @@ struct ReportView: View {
                                 if let errorMessage = report.errorMessage {
                                     Text(errorMessage)
                                 } else {
+                                    let officeDaySP = report.officeDays == 1 ? "day" : "days"
+                                    let totalDaySP = report.totalDays == 1 ? "day" : "days"
                                     HStack(spacing: 2) {
-                                        Text("Of a possible ") +
-                                        Text("\(report.totalDays) ").bold() +
-                                        Text("non-exempt, eligible workdays, you logged ") +
-                                        Text("\(report.officeDays) days ").bold() +
-                                        Text("in office.")
-                                     }
+                                        Text("You made it to the office ") +
+                                        Text("\(report.officeDays) \(officeDaySP) ").bold() +
+                                        Text("of a possible ") +
+                                        Text("\(report.totalDays) \(totalDaySP) ").bold() +
+                                        Text("during the report period.")
+                                    }
                                 }
                             }
                             .font(.subheadline)
