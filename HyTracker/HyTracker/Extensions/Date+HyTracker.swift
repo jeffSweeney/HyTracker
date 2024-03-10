@@ -56,11 +56,9 @@ extension Date {
         }
     }
     
-    var asSimpleDate: SimpleDate {
-        let year = Calendar.current.component(.year, from: self)
-        let month = Calendar.current.component(.month, from: self)
-        let day = Calendar.current.component(.day, from: self)
+    var asSimpleDate: SimpleDate { SimpleDate(fromDate: self.startOfDay) }
     
-        return SimpleDate(month: month, day: day, year: year)
-    }
+    var startOfDay: Date { Calendar.current.startOfDay(for: self) }
+    
+    static var today: Date { Date.now.startOfDay }
 }

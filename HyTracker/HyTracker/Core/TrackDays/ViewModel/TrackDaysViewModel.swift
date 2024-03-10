@@ -38,17 +38,16 @@ class TrackDaysViewModel: ObservableObject {
     
     // Range of dates to display for each bulk update scenario
     // TODO: Convert these to SimpleDate
-    var inOfficeRange: [Date] { bulkUpdateRange(endDate: Date.now) }
-    var exemptRange: [Date] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: Date.now) ?? Date.now) }
+    var inOfficeDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Date.today) }
+    var exemptDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: Date.today) ?? Date.today) }
     
-    
-    var inOfficeSimpleDates: Set<SimpleDate> { Set(user.inOfficeDays?.map { $0.asSimpleDate } ?? []) }
-    var exemptSimpleDates: Set<SimpleDate> { Set(user.exemptDays?.map { $0.asSimpleDate } ?? []) }
+    var inOfficeDatesChecked: Set<SimpleDate> { Set(user.inOfficeDays?.map { $0.asSimpleDate } ?? []) }
+    var exemptDatesChecked: Set<SimpleDate> { Set(user.exemptDays?.map { $0.asSimpleDate } ?? []) }
     
     func uploadOfficeDays(days: Set<SimpleDate>) async throws {
         do {
             var updatedUser = user
-            updatedUser.inOfficeDays = try convertSimpleDateSet(with: days)
+            updatedUser.inOfficeDays = convertSimpleDateSet(with: days)
             
             try await UserService.shared.updateCurrentUser(with: updatedUser)
         } catch {
@@ -59,7 +58,7 @@ class TrackDaysViewModel: ObservableObject {
     func uploadExemptDays(days: Set<SimpleDate>) async throws {
         do {
             var updatedUser = user
-            updatedUser.exemptDays = try convertSimpleDateSet(with: days)
+            updatedUser.exemptDays = convertSimpleDateSet(with: days)
             
             try await UserService.shared.updateCurrentUser(with: updatedUser)
         } catch {
@@ -69,9 +68,9 @@ class TrackDaysViewModel: ObservableObject {
     
     // MARK: - Private Helpers
     
-    private func bulkUpdateRange(endDate: Date) -> [Date] {
+    private func bulkUpdateRange(endDate: Date) -> [SimpleDate] {
         let eligibleDays = user.eligibleDays ?? []
-        let today = Date.now
+        let today = Date.today
         var currentDate = user.startDate ?? today
         
         let calendar = Calendar.current
@@ -90,13 +89,13 @@ class TrackDaysViewModel: ObservableObject {
             }
         }
         
-        return result.sorted { $0 > $1 } // TODO: Map further to simple date
+        return result.sorted { $0 > $1 }.map { $0.asSimpleDate }
     }
     
-    private func convertSimpleDateSet(with days: Set<SimpleDate>) throws -> Set<Date> {
+    private func convertSimpleDateSet(with days: Set<SimpleDate>) -> Set<Date> {
         var result: [Date] = []
         for simpleDate in days {
-            let date = try simpleDate.asDate()
+            let date = simpleDate.asDate
             result.append(date)
         }
         

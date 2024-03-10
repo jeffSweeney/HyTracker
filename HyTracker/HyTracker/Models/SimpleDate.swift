@@ -8,33 +8,24 @@
 import Foundation
 
 // TODO: Should we use this everywhere and abandon Date?
-struct SimpleDate: Codable, Hashable, Equatable {
+struct SimpleDate: Identifiable, Hashable, Equatable {
     let month: Int
     let day: Int
     let year: Int
     
-    init(month: Int, day: Int, year: Int) {
-        self.month = month
-        self.day = day
-        self.year = year
-    }
+    private let underlyingDate: Date
+    
+    var id: String { "\(year)-\(String(format: "%02d", month))-\(String(format: "%02d", day))" }
     
     init(fromDate: Date) {
         self.year = Calendar.current.component(.year, from: fromDate)
         self.month = Calendar.current.component(.month, from: fromDate)
         self.day = Calendar.current.component(.day, from: fromDate)
+        
+        self.underlyingDate = fromDate.startOfDay
     }
     
-    func asDate() throws -> Date {
-        let calendar = Calendar.current
-        let components = DateComponents(year: self.year, month: self.month, day: self.day)
-        
-        if let date = calendar.date(from: components) {
-            return date
-        } else {
-            throw DateError.invalidFormat
-        }
-    }
+    var asDate: Date { return underlyingDate.startOfDay }
 }
 
 enum DateError: Error {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BulkUpdatesView: View {
     let context: BulkUpdateType
-    private let range: [Date]
+    private let datesRange: [SimpleDate]
     
     @ObservedObject var viewModel: TrackDaysViewModel
     @State private var datesChecked: Set<SimpleDate> { didSet { madeChange() } }
@@ -19,8 +19,8 @@ struct BulkUpdatesView: View {
     init(context: BulkUpdateType, viewModel: TrackDaysViewModel) {
         self.context = context
         _viewModel = ObservedObject(wrappedValue: viewModel)
-        range = context == .inOffice ? viewModel.inOfficeRange : viewModel.exemptRange
-        _datesChecked = State(initialValue: context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates)
+        datesRange = context == .inOffice ? viewModel.inOfficeDatesRange : viewModel.exemptDatesRange
+        _datesChecked = State(initialValue: context == .inOffice ? viewModel.inOfficeDatesChecked : viewModel.exemptDatesChecked)
     }
     
     var body: some View {
@@ -46,33 +46,33 @@ struct BulkUpdatesView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     LazyVStack(spacing: 0) {
-                        if range.isEmpty {
+                        if datesRange.isEmpty {
                             Text("No dates to display")
                                 .font(.headline)
                         } else {
-                            ForEach(range, id: \.self) { date in
+                            ForEach(datesRange) { simpleDate in
                                 VStack(spacing: 0) {
                                     HStack {
                                         HStack {
-                                            Text(date.dayOfTheWeek)
+                                            Text(simpleDate.asDate.dayOfTheWeek)
                                                 .frame(width: 64)
                                             
-                                            Text(date.sixDigitDate)
+                                            Text(simpleDate.asDate.sixDigitDate)
                                         }
                                         .font(.subheadline)
                                         
                                         Spacer()
                                         
-                                        let systemName = datesChecked.contains(date.asSimpleDate) ? "checkmark.square" : "square"
+                                        let systemName = datesChecked.contains(simpleDate) ? "checkmark.square" : "square"
                                         Image(systemName: systemName)
                                             .padding(.horizontal)
                                             .background(Color.clear)
                                             .clipShape(Rectangle())
                                             .onTapGesture {
-                                                if datesChecked.contains(date.asSimpleDate) {
-                                                    datesChecked.remove(date.asSimpleDate)
+                                                if datesChecked.contains(simpleDate) {
+                                                    datesChecked.remove(simpleDate)
                                                 } else {
-                                                    datesChecked.insert(date.asSimpleDate)
+                                                    datesChecked.insert(simpleDate)
                                                 }
                                             }
                                     }
@@ -122,7 +122,7 @@ struct BulkUpdatesView: View {
 
 extension BulkUpdatesView {
     private func madeChange() {
-        let oldResult = context == .inOffice ? viewModel.inOfficeSimpleDates : viewModel.exemptSimpleDates
+        let oldResult = context == .inOffice ? viewModel.inOfficeDatesChecked : viewModel.exemptDatesChecked
         viewModel.madeBulkTrackUpdates = oldResult != datesChecked
     }
 }

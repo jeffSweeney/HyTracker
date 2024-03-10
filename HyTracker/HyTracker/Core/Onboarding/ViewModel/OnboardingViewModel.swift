@@ -14,7 +14,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published var requiredDaysCount: Int? = nil { didSet { updatedAnswer() } }
     
     // MARK: - Temp level state properties - used during input stage
-    @Published var bindingDate: Date = .now
+    @Published var bindingDate: Date = .today
     @Published var bindingCount: Int = 0
     
     // MARK: - Button Eligibilities
@@ -35,8 +35,8 @@ final class OnboardingViewModel: ObservableObject {
     
     // MARK: - Sheet Dismissal Processing
     func processDateSelectorSheet() {
-        if bindingDate > Date.now { // Indicates Cancel was tapped - don't persist result
-            bindingDate = startDate ?? .now // Set back to last selection if we have one
+        if bindingDate > Date.today { // Indicates Cancel was tapped - don't persist result
+            bindingDate = startDate ?? .today // Set back to last selection if we have one
         } else { // valid selection made
             startDate = bindingDate
         }

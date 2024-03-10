@@ -53,7 +53,7 @@ final class UserService: ObservableObject {
             guard var user = currentUser else { return } // TODO: Throw?
             
             user.hasOnboarded = true
-            user.startDate = date
+            user.startDate = date.startOfDay
             user.eligibleDays = days
             user.weeklyRequirementTotal = count
             

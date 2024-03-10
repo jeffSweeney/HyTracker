@@ -24,7 +24,7 @@ struct StartDateSelectorSheet: View {
                     .multilineTextAlignment(.center)
                     .padding([.horizontal, .bottom], 24)
                 
-                DatePicker(selection: $selectedDate, in: ...Date.now, displayedComponents: .date) {
+                DatePicker(selection: $selectedDate, in: ...Date.today, displayedComponents: .date) {
                     Text("Select a date:")
                         .font(.headline)
                 }
@@ -62,5 +62,5 @@ struct StartDateSelectorSheet: View {
 }
 
 #Preview {
-    StartDateSelectorSheet(selectedDate: .constant(Date.now))
+    StartDateSelectorSheet(selectedDate: .constant(Date.today))
 }

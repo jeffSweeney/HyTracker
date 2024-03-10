@@ -8,7 +8,7 @@
 import Foundation
 
 extension User {
-    fileprivate static var today: Date { return Date.now }
+    fileprivate static var today: Date { return Date.today }
     fileprivate static var oneMonthAgo: Date { Calendar.current.date(byAdding: .month, value: -1, to: today)! }
     
     static let BASIC_MOCK_USER = User(id: UUID().uuidString, email: "Jeff@test.com", fullname: "Jeff Sweeney", hasOnboarded: true)

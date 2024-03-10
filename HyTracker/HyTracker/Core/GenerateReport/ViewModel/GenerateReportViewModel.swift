@@ -19,7 +19,7 @@ class GenerateReportViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         self.reportStartDate = Self.defaultReportStartDate(for: user)
-        self.reportEndDate = Date.now
+        self.reportEndDate = Date.today
         
         setupSubscribers()
     }
@@ -38,7 +38,7 @@ class GenerateReportViewModel: ObservableObject {
     /// Derives a manageable default report start date - 4 weeks (or less if analytics start date is more recent).
     /// If we simply use analytics start date as the default, over time, this will lead to a massive difference in report default start/end date.
     private static func defaultReportStartDate(for user: User) -> Date {
-        let today = Date.now
+        let today = Date.today
         let fourWeeksAgo = Calendar.current.date(byAdding: .weekOfYear, value: -4, to: today)
         let earliestStartDate = user.startDate ?? today
         
@@ -51,7 +51,7 @@ class GenerateReportViewModel: ObservableObject {
     }
     
     var analyticsStartDate: Date {
-        user.startDate ?? Date.now // Onboarding required - should never be nil
+        user.startDate ?? Date.today // Onboarding required - should never be nil
     }
     
     var reportStartRange: ClosedRange<Date> {
@@ -59,7 +59,7 @@ class GenerateReportViewModel: ObservableObject {
     }
     
     var reportEndRange: ClosedRange<Date> {
-        reportStartDate ... Date.now
+        reportStartDate ... Date.today
     }
     
     var weeklyRequirementTotal: Int {

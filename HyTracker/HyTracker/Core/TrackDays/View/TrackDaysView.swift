@@ -30,7 +30,7 @@ struct TrackDaysView: View {
                         Text("Quick Track")
                             .font(.headline)
                         
-                        Text(Date.now.asFullHyTrackerDate)
+                        Text(Date.today.asFullHyTrackerDate)
                             .font(.subheadline)
                         
                         HStack(spacing: 0) {
