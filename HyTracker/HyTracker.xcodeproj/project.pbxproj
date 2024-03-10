@@ -81,6 +81,7 @@
 		E0DAE5B02B9D37C100424E3E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E0DAE5AF2B9D37C100424E3E /* FirebaseStorage */; };
 		E0DAE5B22B9D37C100424E3E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E0DAE5B12B9D37C100424E3E /* FirebaseStorageCombine-Community */; };
 		E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */; };
+		E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3BD2B9E451000F2CE49 /* Report.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		E0C21CBC2B894398007E542E /* RequirementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementStack.swift; sourceTree = "<group>"; };
 		E0C21CC02B8C202D007E542E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
+		E0EEF3BD2B9E451000F2CE49 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +456,7 @@
 		E0C21CAA2B87C348007E542E /* GenerateReport */ = {
 			isa = PBXGroup;
 			children = (
+				E0EEF3BC2B9E450000F2CE49 /* Model */,
 				E062F24F2B9CE8D400885AF3 /* View */,
 				E062F24E2B9CE8CE00885AF3 /* ViewModel */,
 			);
@@ -483,6 +486,14 @@
 				E0C21CC02B8C202D007E542E /* ReportView.swift */,
 			);
 			path = Sheets;
+			sourceTree = "<group>";
+		};
+		E0EEF3BC2B9E450000F2CE49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0EEF3BD2B9E451000F2CE49 /* Report.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -604,6 +615,7 @@
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */,
+				E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */,
 				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
 				E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */,
 				E03E94172B797A0200FF01D0 /* EligibleWorkdaySheet.swift in Sources */,

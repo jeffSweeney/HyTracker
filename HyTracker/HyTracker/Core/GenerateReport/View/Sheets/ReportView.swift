@@ -14,7 +14,7 @@ struct ReportView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
-                HTLogoView(size: .small)
+                HTLogoView(size: .xSmall)
                 
                 VStack(spacing: 8) {
                     Text("Report")
@@ -40,19 +40,30 @@ struct ReportView: View {
                         .font(.subheadline)
                     }
                     
-                    // TODO: All dummy data right now
                     VStack(spacing: 16) {
-                        Text("Actual percentage: \(viewModel.actualPercentage)")
+                        Text("Report percentage: \(viewModel.report?.percentage ?? "CALCULATING")")
                             .font(.headline)
                         
-                        HStack(spacing: 2) {
-                            Text("Of a possible ") +
-                            Text("12 ").bold() +
-                            Text("non-exempt, eligible workdays, you logged ") +
-                            Text("9 days ").bold() +
-                            Text("in office.")
-                         }
-                        .font(.subheadline)
+                        if let report = viewModel.report {
+                            Group {
+                                if let errorMessage = report.errorMessage {
+                                    Text(errorMessage)
+                                } else {
+                                    HStack(spacing: 2) {
+                                        Text("Of a possible ") +
+                                        Text("\(report.totalDays) ").bold() +
+                                        Text("non-exempt, eligible workdays, you logged ") +
+                                        Text("\(report.officeDays) days ").bold() +
+                                        Text("in office.")
+                                     }
+                                }
+                            }
+                            .font(.subheadline)
+                        } else {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .scaleEffect(1.25)
+                        }
                     }
                 }
                 .multilineTextAlignment(.center)
@@ -64,6 +75,12 @@ struct ReportView: View {
                     HTPrimaryButton(screen: .done, isActionable: true)
                 })
                 .padding(.vertical)
+            }
+            .onAppear {
+                viewModel.runReport()
+            }
+            .onDisappear {
+                viewModel.report = nil
             }
             .navigationTitle("REPORT")
             .navigationBarTitleDisplayMode(.inline)

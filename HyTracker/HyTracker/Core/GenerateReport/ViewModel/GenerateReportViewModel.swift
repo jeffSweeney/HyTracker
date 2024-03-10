@@ -13,6 +13,7 @@ class GenerateReportViewModel: ObservableObject {
     @Published var user: User
     @Published var reportStartDate: Date
     @Published var reportEndDate: Date
+    @Published var report: Report? = nil
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -75,9 +76,42 @@ class GenerateReportViewModel: ObservableObject {
         return "\(String(format: "%.0f", result))%"
     }
     
-    var actualPercentage: String {
-        // TODO: Calculate
-        return "75%"
+    func runReport() {
+        // Never nil or empty since onboarded. Unexpected edgecase will produce a "No eligible workdays in range" result for now.
+        let eligibleDays = user.eligibleDays ?? []
+        let officeDays = user.inOfficeDays ?? [] // Has data or assumes empty in calculation
+        let exemptDays = user.exemptDays ?? [] // Has data or assumes empty in calculation
+        
+        // Accumulators for report
+        var totalDaysInOffice = 0
+        var eligibleDaysInOffice = 0
+        
+        // Opting for full iteration O(n) rather than multiple set operations
+        let calendar = Calendar.current
+        let components = DateComponents(day: 1)
+        var currentDate = reportStartDate.startOfDay
+        while currentDate <= reportEndDate.startOfDay {
+            // To be considered in analytics, currentDate must:
+            // - Be a weekday within the eligibleDays of the user AND
+            // - NOT be marked as an exempt day
+            if let weekday = currentDate.asWeekday, eligibleDays.contains(weekday), !exemptDays.contains(currentDate) {
+                // Eligible day for analytics
+                eligibleDaysInOffice += 1
+                
+                // Marked in office
+                if officeDays.contains(currentDate) {
+                    totalDaysInOffice += 1
+                }
+            }
+            
+            if let nextDate = calendar.date(byAdding: components, to: currentDate) {
+                currentDate = nextDate
+            } else {
+                break
+            }
+        }
+        
+        report = Report(officeDays: totalDaysInOffice, totalDays: eligibleDaysInOffice)
     }
     
     var eligibleDaysSorted: String {
