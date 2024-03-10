@@ -55,7 +55,7 @@ struct ReportView: View {
                                         Text("You made it to the office ") +
                                         Text("\(report.officeDays) \(officeDaySP) ").bold() +
                                         Text("of a possible ") +
-                                        Text("\(report.totalDays) \(totalDaySP) ").bold() +
+                                        Text("\(report.totalDays) eligible \(totalDaySP) ").bold() +
                                         Text("during the report period.")
                                     }
                                 }
