@@ -24,7 +24,7 @@ enum TrackAlert {
         case .notEligible:
             "Today is not an eligible workday for analytics. Please update your profile requirements if they have changed."
         case .alreadyExists(let updateType):
-            "You've already registered today as '\(updateType.alertContext)'. If you wish to remove it, please do so in the Bulk Updates section."
+            "You've already registered today as '\(updateType.alertContext)'. If you wish to remove it, please do so in the Bulk Track section."
         case .success(let updateType):
             "You have successfully tracked today as \(updateType.alertContext)!"
         }

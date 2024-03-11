@@ -53,7 +53,7 @@ struct TrackDaysView: View {
                             viewModel.alert = nil
                         }
                     }, message: {
-                        Text(viewModel.alert?.message ?? "Unknown result. Check Bulk Updates section for change confirmation.")
+                        Text(viewModel.alert?.message ?? "Unknown result. Check Bulk Track section for change confirmation.")
                             .font(.subheadline)
                     })
                     
