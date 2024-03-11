@@ -83,6 +83,7 @@
 		E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */; };
 		E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3BD2B9E451000F2CE49 /* Report.swift */; };
 		E0EEF3C32B9E897700F2CE49 /* TrackUpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */; };
+		E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
 		E0EEF3BD2B9E451000F2CE49 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackUpdateType.swift; sourceTree = "<group>"; };
+		E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,6 +504,7 @@
 		E0EEF3BF2B9E890700F2CE49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */,
 				E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */,
 			);
 			path = Model;
@@ -623,6 +626,7 @@
 				E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
+				E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */,

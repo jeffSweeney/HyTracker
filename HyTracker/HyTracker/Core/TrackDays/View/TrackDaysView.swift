@@ -47,13 +47,13 @@ struct TrackDaysView: View {
                             })
                         }
                     }
-                    .alert("Update Aborted", isPresented: $viewModel.showingAlert, actions: {
-                        Button("Got it!") {
+                    .alert(viewModel.alert?.title ?? "Alert", isPresented: $viewModel.showingAlert, actions: {
+                        Button(viewModel.alert?.buttonTitle ?? "OK") {
                             viewModel.showingAlert = false
-                            viewModel.alertMessage = nil
+                            viewModel.alert = nil
                         }
                     }, message: {
-                        Text(viewModel.alertMessage ?? "Unable to upload today. Try again later.")
+                        Text(viewModel.alert?.message ?? "Unknown result. Check Bulk Updates section for change confirmation.")
                             .font(.subheadline)
                     })
                     

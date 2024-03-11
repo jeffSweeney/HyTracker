@@ -14,7 +14,7 @@ class TrackDaysViewModel: ObservableObject {
     @Published var madeBulkTrackUpdates: Bool
     @Published var showingAlert: Bool
     @Published var today: Date
-    var alertMessage: String?
+    var alert: TrackAlert?
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -23,7 +23,7 @@ class TrackDaysViewModel: ObservableObject {
         self.madeBulkTrackUpdates = false // Initially no updates
         // Initially no alert
         self.showingAlert = false
-        self.alertMessage = nil
+        self.alert = nil
         self.today = Date.today
         
         setupSubscribers()
@@ -57,7 +57,7 @@ class TrackDaysViewModel: ObservableObject {
         // Today must be an eligible workday, otherwise do not continue.
         let eligibleDays = user.eligibleDays ?? []
         guard let weekday = today.asWeekday, eligibleDays.contains(weekday) else {
-            alertMessage = "Today is not an eligible workday for analytics. Please update your profile requirements if they have changed."
+            alert = .notEligible
             showingAlert = true
             return
         }
@@ -65,7 +65,7 @@ class TrackDaysViewModel: ObservableObject {
         // Today can't already be registered as in-office/exempt, otherwise do not continue.
         var contextSet = (updateType == .inOffice ? user.inOfficeDays : user.exemptDays) ?? []
         guard !contextSet.contains(today) else {
-            alertMessage = "You've already registered today as '\(updateType.alertContext)'. If you wish to remove it, please do so in the Bulk Updates section."
+            alert = .alreadyExists(updateType)
             showingAlert = true
             return
         }
@@ -77,7 +77,11 @@ class TrackDaysViewModel: ObservableObject {
         case .exempt: updatedUser.exemptDays = contextSet
         case .inOffice: updatedUser.inOfficeDays = contextSet
         }
+        
         try await UserService.shared.updateCurrentUser(with: updatedUser)
+        
+        alert = .success(updateType)
+        showingAlert = true
     }
     
     func uploadOfficeDays(days: Set<SimpleDate>) async throws {
