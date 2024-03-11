@@ -35,18 +35,27 @@ struct TrackDaysView: View {
                         
                         HStack(spacing: 0) {
                             Button(action: {
-                                print("DEBUG: Tapped QT In-Office")
+                                Task { try await viewModel.uploadToday(as: .inOffice) }
                             }, label: {
                                 HTPrimaryButton(screen: .inOffice, isActionable: true, style: .split)
                             })
                             
                             Button(action: {
-                                print("DEBUG: Tapped QT Exempt")
+                                Task { try await viewModel.uploadToday(as: .exempt) }
                             }, label: {
                                 HTPrimaryButton(screen: .exempt, isActionable: true, style: .split)
                             })
                         }
                     }
+                    .alert("Update Aborted", isPresented: $viewModel.showingAlert, actions: {
+                        Button("Got it!") {
+                            viewModel.showingAlert = false
+                            viewModel.alertMessage = nil
+                        }
+                    }, message: {
+                        Text(viewModel.alertMessage ?? "Unable to upload today. Try again later.")
+                            .font(.subheadline)
+                    })
                     
                     HStack {
                         Rectangle()

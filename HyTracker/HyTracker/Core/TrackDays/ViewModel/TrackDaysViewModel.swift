@@ -12,12 +12,17 @@ class TrackDaysViewModel: ObservableObject {
     // MARK: - Publishers
     @Published var user: User
     @Published var madeBulkTrackUpdates: Bool
+    @Published var showingAlert: Bool
+    var alertMessage: String?
     
     private var cancellables: Set<AnyCancellable> = []
     
     init(user: User) {
         self.user = user
         self.madeBulkTrackUpdates = false // Initially no updates
+        // Initially no alert
+        self.showingAlert = false
+        self.alertMessage = nil
         
         setupSubscribers()
     }
@@ -37,12 +42,41 @@ class TrackDaysViewModel: ObservableObject {
     }
     
     // Range of dates to display for each bulk update scenario
-    // TODO: Convert these to SimpleDate
     var inOfficeDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Date.today) }
     var exemptDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: Date.today) ?? Date.today) }
     
     var inOfficeDatesChecked: Set<SimpleDate> { Set(user.inOfficeDays?.map { $0.asSimpleDate } ?? []) }
     var exemptDatesChecked: Set<SimpleDate> { Set(user.exemptDays?.map { $0.asSimpleDate } ?? []) }
+    
+    /// `uploadToday`
+    /// Will attempt to upload today as an in-office or exempt day. If it's not an eligible workday, or is already registered as in-office/exempt, operation wont be performed and the alert publisher will be triggered.
+    @MainActor
+    func uploadToday(as updateType: TrackUpdateType) async throws {
+        // Today must be an eligible workday, otherwise do not continue.
+        let eligibleDays = user.eligibleDays ?? []
+        guard let weekday = Date.today.asWeekday, eligibleDays.contains(weekday) else {
+            alertMessage = "Today is not an eligible workday for analytics. Please update your profile requirements if they have changed."
+            showingAlert = true
+            return
+        }
+        
+        // Today can't already be registered as in-office/exempt, otherwise do not continue.
+        var contextSet = (updateType == .inOffice ? user.inOfficeDays : user.exemptDays) ?? []
+        guard !contextSet.contains(Date.today) else {
+            alertMessage = "You've already registered today as '\(updateType.alertContext)'. If you wish to remove it, please do so in the Bulk Updates section."
+            showingAlert = true
+            return
+        }
+        
+        // Safe to upload today
+        var updatedUser = user
+        contextSet.insert(Date.today)
+        switch updateType {
+        case .exempt: updatedUser.exemptDays = contextSet
+        case .inOffice: updatedUser.inOfficeDays = contextSet
+        }
+        try await UserService.shared.updateCurrentUser(with: updatedUser)
+    }
     
     func uploadOfficeDays(days: Set<SimpleDate>) async throws {
         do {

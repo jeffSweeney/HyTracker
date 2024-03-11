@@ -82,6 +82,7 @@
 		E0DAE5B22B9D37C100424E3E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E0DAE5B12B9D37C100424E3E /* FirebaseStorageCombine-Community */; };
 		E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */; };
 		E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3BD2B9E451000F2CE49 /* Report.swift */; };
+		E0EEF3C32B9E897700F2CE49 /* TrackUpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		E0C21CC02B8C202D007E542E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
 		E0EEF3BD2B9E451000F2CE49 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackUpdateType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +449,7 @@
 		E0C21CA92B87C343007E542E /* TrackDays */ = {
 			isa = PBXGroup;
 			children = (
+				E0EEF3BF2B9E890700F2CE49 /* Model */,
 				E062F2552B9D0CCD00885AF3 /* View */,
 				E062F2542B9D0CC400885AF3 /* ViewModel */,
 			);
@@ -492,6 +495,14 @@
 			isa = PBXGroup;
 			children = (
 				E0EEF3BD2B9E451000F2CE49 /* Report.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E0EEF3BF2B9E890700F2CE49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -641,6 +652,7 @@
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */,
 				E062F2532B9CEA4F00885AF3 /* GenerateReportViewModel.swift in Sources */,
+				E0EEF3C32B9E897700F2CE49 /* TrackUpdateType.swift in Sources */,
 				E03E93DF2B7808C700FF01D0 /* HyTrackerApp.swift in Sources */,
 				E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */,
 				E0C21CB92B8910BB007E542E /* Set+HyTracker.swift in Sources */,

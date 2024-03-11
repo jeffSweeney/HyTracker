@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BulkUpdatesView: View {
-    let context: BulkUpdateType
+    let context: TrackUpdateType
     private let datesRange: [SimpleDate]
     
     @ObservedObject var viewModel: TrackDaysViewModel
@@ -16,7 +16,7 @@ struct BulkUpdatesView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    init(context: BulkUpdateType, viewModel: TrackDaysViewModel) {
+    init(context: TrackUpdateType, viewModel: TrackDaysViewModel) {
         self.context = context
         _viewModel = ObservedObject(wrappedValue: viewModel)
         datesRange = context == .inOffice ? viewModel.inOfficeDatesRange : viewModel.exemptDatesRange
@@ -130,28 +130,5 @@ extension BulkUpdatesView {
 #Preview {
     NavigationStack {
         BulkUpdatesView(context: .exempt, viewModel: TrackDaysViewModel(user: .TRACK_MOCK_USER))
-    }
-}
-
-enum BulkUpdateType {
-    case exempt
-    case inOffice
-    
-    var navTitle: String {
-        switch self {
-        case .exempt:
-            "Track Exempt Days"
-        case .inOffice:
-            "Track Office Days"
-        }
-    }
-    
-    var headline: String {
-        switch self {
-        case .exempt:
-            "Exempt from Analytics"
-        case .inOffice:
-            "Days in Office"
-        }
     }
 }
