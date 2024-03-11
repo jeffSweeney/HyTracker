@@ -13,6 +13,7 @@ class TrackDaysViewModel: ObservableObject {
     @Published var user: User
     @Published var madeBulkTrackUpdates: Bool
     @Published var showingAlert: Bool
+    @Published var today: Date
     var alertMessage: String?
     
     private var cancellables: Set<AnyCancellable> = []
@@ -23,6 +24,7 @@ class TrackDaysViewModel: ObservableObject {
         // Initially no alert
         self.showingAlert = false
         self.alertMessage = nil
+        self.today = Date.today
         
         setupSubscribers()
     }
@@ -42,8 +44,8 @@ class TrackDaysViewModel: ObservableObject {
     }
     
     // Range of dates to display for each bulk update scenario
-    var inOfficeDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Date.today) }
-    var exemptDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: Date.today) ?? Date.today) }
+    var inOfficeDatesRange: [SimpleDate] { bulkUpdateRange(endDate: today) }
+    var exemptDatesRange: [SimpleDate] { bulkUpdateRange(endDate: Calendar.current.date(byAdding: .day, value: 7, to: today) ?? today) }
     
     var inOfficeDatesChecked: Set<SimpleDate> { Set(user.inOfficeDays?.map { $0.asSimpleDate } ?? []) }
     var exemptDatesChecked: Set<SimpleDate> { Set(user.exemptDays?.map { $0.asSimpleDate } ?? []) }
@@ -54,7 +56,7 @@ class TrackDaysViewModel: ObservableObject {
     func uploadToday(as updateType: TrackUpdateType) async throws {
         // Today must be an eligible workday, otherwise do not continue.
         let eligibleDays = user.eligibleDays ?? []
-        guard let weekday = Date.today.asWeekday, eligibleDays.contains(weekday) else {
+        guard let weekday = today.asWeekday, eligibleDays.contains(weekday) else {
             alertMessage = "Today is not an eligible workday for analytics. Please update your profile requirements if they have changed."
             showingAlert = true
             return
@@ -62,7 +64,7 @@ class TrackDaysViewModel: ObservableObject {
         
         // Today can't already be registered as in-office/exempt, otherwise do not continue.
         var contextSet = (updateType == .inOffice ? user.inOfficeDays : user.exemptDays) ?? []
-        guard !contextSet.contains(Date.today) else {
+        guard !contextSet.contains(today) else {
             alertMessage = "You've already registered today as '\(updateType.alertContext)'. If you wish to remove it, please do so in the Bulk Updates section."
             showingAlert = true
             return
@@ -70,7 +72,7 @@ class TrackDaysViewModel: ObservableObject {
         
         // Safe to upload today
         var updatedUser = user
-        contextSet.insert(Date.today)
+        contextSet.insert(today)
         switch updateType {
         case .exempt: updatedUser.exemptDays = contextSet
         case .inOffice: updatedUser.inOfficeDays = contextSet
@@ -104,7 +106,6 @@ class TrackDaysViewModel: ObservableObject {
     
     private func bulkUpdateRange(endDate: Date) -> [SimpleDate] {
         let eligibleDays = user.eligibleDays ?? []
-        let today = Date.today
         var currentDate = user.startDate ?? today
         
         let calendar = Calendar.current
@@ -117,7 +118,7 @@ class TrackDaysViewModel: ObservableObject {
             }
             
             if let nextDate = calendar.date(byAdding: components, to: currentDate) {
-                currentDate = nextDate
+                currentDate = nextDate.startOfDay
             } else {
                 break
             }

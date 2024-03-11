@@ -30,7 +30,7 @@ struct TrackDaysView: View {
                         Text("Quick Track")
                             .font(.headline)
                         
-                        Text(Date.today.asFullHyTrackerDate)
+                        Text(viewModel.today.asFullHyTrackerDate)
                             .font(.subheadline)
                         
                         HStack(spacing: 0) {
@@ -97,6 +97,10 @@ struct TrackDaysView: View {
             .fontDesign(.serif)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(HyTrackerGradient())
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                // Keeps the date fresh when coming into foreground
+                viewModel.today = Date.today
+            }
         }
     }
 }

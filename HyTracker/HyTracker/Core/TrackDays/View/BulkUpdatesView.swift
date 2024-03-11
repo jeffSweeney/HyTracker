@@ -98,7 +98,6 @@ struct BulkUpdatesView: View {
             .frame(maxHeight: 350)
             
             Button {
-                print("DEBUG: Tapped Track Days")
                 Task {
                     try await context == .inOffice ? 
                         viewModel.uploadOfficeDays(days: datesChecked) : viewModel.uploadExemptDays(days: datesChecked)
@@ -117,6 +116,9 @@ struct BulkUpdatesView: View {
         .modifier(HyTrackerGradient())
         .navigationTitle(context.navTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            madeChange()
+        }
     }
 }
 
