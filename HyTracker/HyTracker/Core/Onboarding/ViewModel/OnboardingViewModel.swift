@@ -61,11 +61,6 @@ final class OnboardingViewModel: ObservableObject {
     // MARK: - Complete Onboarding
     func completeOnboarding() async throws {
         guard answeredAllOnboarding, let date = startDate, !eligibleWorkdays.isEmpty, let daysCount = requiredDaysCount else {
-            print("DEBUG: Attempting to complete onboarding while incomplete. Collected data:")
-            print("DEBUG: answeredAllOnboarding: \(answeredAllOnboarding)")
-            print("DEBUG: startDate: \(startDate)")
-            print("DEBUG: eligibleWorkdays: \(eligibleWorkdays)")
-            print("DEBUG: requiredDaysCount: \(requiredDaysCount)")
             return
         }
         

@@ -53,7 +53,9 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        AuthService.shared.signOut()
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            AuthService.shared.signOut()
+                        }
                     } label: {
                         Text("SIGN OUT")
                             .font(.footnote)
