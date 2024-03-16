@@ -13,6 +13,7 @@ class SignupViewModel: ObservableObject {
     @Published var password: String = "" { didSet { completedField() } }
     
     @Published var signupFormComplete: Bool = false
+    @Published var isLoading: Bool = false
     
     private func completedField() {
         signupFormComplete = !fullname.isEmpty && !email.isEmpty && !password.isEmpty
@@ -20,6 +21,7 @@ class SignupViewModel: ObservableObject {
     
     @MainActor
     func signupTapped() async throws {
+        isLoading = true
         try await AuthService.shared.createUser(withEmail: email, password: password, fullname: fullname)
     }
 }
