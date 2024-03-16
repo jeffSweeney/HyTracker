@@ -12,6 +12,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published var startDate: Date? = nil { didSet { updatedAnswer() } }
     @Published var eligibleWorkdays: Set<Weekday> = [] { didSet { updatedAnswer() } }
     @Published var requiredDaysCount: Int? = nil { didSet { updatedAnswer() } }
+    @Published var isLoading: Bool = false
     
     // MARK: - Temp level state properties - used during input stage
     @Published var bindingDate: Date = .today
@@ -64,6 +65,7 @@ final class OnboardingViewModel: ObservableObject {
             return
         }
         
+        isLoading = true
         try await UserService.shared.completeOnboarding(startDate: date, eligibleDays: eligibleWorkdays, weeklyRequirementTotal: daysCount)
     }
 }

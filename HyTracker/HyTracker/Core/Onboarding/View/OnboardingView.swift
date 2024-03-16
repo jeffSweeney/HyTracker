@@ -65,9 +65,11 @@ struct OnboardingView: View {
             Button(action: {
                 Task { try await viewModel.completeOnboarding() }
             }, label: {
-                HTPrimaryButton(screen: .getStarted, isActionable: viewModel.answeredAllOnboarding)
+                HTPrimaryButton(screen: .getStarted, 
+                                isActionable: viewModel.answeredAllOnboarding,
+                                isLoading: $viewModel.isLoading)
             })
-            .disabled(!viewModel.answeredAllOnboarding)
+            .disabled(!viewModel.answeredAllOnboarding || viewModel.isLoading)
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
