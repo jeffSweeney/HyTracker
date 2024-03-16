@@ -12,6 +12,7 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = "" { didSet { completedField() } }
     
     @Published var loginFormComplete: Bool = false
+    @Published var isLoading: Bool = false
     
     private func completedField() {
         loginFormComplete = !email.isEmpty && !password.isEmpty
@@ -19,6 +20,7 @@ class LoginViewModel: ObservableObject {
     
     @MainActor
     func loginTapped() async throws {
+        isLoading = true
         try await AuthService.shared.signIn(withEmail: email, password: password)
     }
 }
