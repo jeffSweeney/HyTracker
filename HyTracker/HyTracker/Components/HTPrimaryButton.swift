@@ -11,25 +11,35 @@ struct HTPrimaryButton: View {
     let style: PrimaryStyle
     let screen: Screen
     let isActionable: Bool
+    @Binding var isLoading: Bool
     
-    init(screen: Screen, isActionable: Bool, style: PrimaryStyle = .full) {
+    init(screen: Screen, isActionable: Bool, style: PrimaryStyle = .full, isLoading: Binding<Bool>? = nil) {
         self.style = style
         self.screen = screen
         self.isActionable = isActionable
+        self._isLoading = isLoading ?? .constant(false)
     }
     
     var body: some View {
-        Text(screen.label)
-            .font(.headline)
-            .foregroundStyle(.black)
-            .frame(width: style.width, height: 40)
-            .overlay {
-                Capsule()
-                    .stroke(lineWidth: 2)
-                    .foregroundStyle(.black)
+        Group {
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(1.25)
+            } else {
+                Text(screen.label)
             }
-            .padding()
-            .opacity(isActionable ? 1 : 0.15)
+        }
+        .font(.headline)
+        .foregroundStyle(.black)
+        .frame(width: style.width, height: 40)
+        .overlay {
+            Capsule()
+                .stroke(lineWidth: 2)
+                .foregroundStyle(.black)
+        }
+        .padding()
+        .opacity(isActionable ? 1 : 0.15)
     }
 }
 
