@@ -9,24 +9,42 @@ import SwiftUI
 
 struct ForgotPasswordSheet: View {
     @Environment(\.dismiss) var dismiss
+    @State var email: String = ""
     
     var body: some View {
         VStack(spacing: 24) {
-            Text("UNDER CONSTRUCTION")
-                .font(.title)
-                .underline()
+            HStack {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "xmark")
+                })
+                
+                Spacer()
+            }
+            .padding()
             
-            Text("Forgot Password Sheet")
-                .font(.title3)
+            HTLogoView(size: .small)
+            
+            Text("Enter your registered email below to receive password reset instruction")
+                .font(.subheadline)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .padding(.bottom)
+            
+            AuthenticationTFComponent(component: .email, captureInput: $email)
+                .padding(.horizontal)
             
             Button(action: {
                 dismiss()
             }, label: {
                 HTPrimaryButton(screen: .done, isActionable: true)
+                    .padding(.vertical)
             })
         }
-        .navigationTitle("Forgot Password?")
-        .navigationBarTitleDisplayMode(.inline)
+        .fontDesign(.serif)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .modifier(HyTrackerGradient())
     }
 }
 
