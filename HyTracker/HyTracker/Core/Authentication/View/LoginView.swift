@@ -35,6 +35,15 @@ struct LoginView: View {
         .modifier(HyTrackerGradient())
         .navigationBarBackButtonHidden()
         .modifier(WelcomeDismissModifier())
+        .alert("Error", isPresented: $viewModel.showingAlert) {
+            Button("Got it!") {
+                viewModel.clearAlert()
+            }
+        } message: {
+            Text(viewModel.alertMessage)
+                .font(.subheadline)
+        }
+
     }
 }
 

@@ -84,6 +84,7 @@
 		E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3BD2B9E451000F2CE49 /* Report.swift */; };
 		E0EEF3C32B9E897700F2CE49 /* TrackUpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */; };
 		E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */; };
+		E0EEF3C72BA77AE900F2CE49 /* AuthServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C62BA77AE900F2CE49 /* AuthServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		E0EEF3BD2B9E451000F2CE49 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackUpdateType.swift; sourceTree = "<group>"; };
 		E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAlert.swift; sourceTree = "<group>"; };
+		E0EEF3C62BA77AE900F2CE49 /* AuthServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E94682B82589000FF01D0 /* AuthService.swift */,
+				E0EEF3C62BA77AE900F2CE49 /* AuthServiceError.swift */,
 				E03E94712B86400900FF01D0 /* UserService.swift */,
 			);
 			path = Services;
@@ -646,6 +649,7 @@
 				E03E94692B82589000FF01D0 /* AuthService.swift in Sources */,
 				E0C21CBD2B894398007E542E /* RequirementStack.swift in Sources */,
 				E03E93FA2B78220400FF01D0 /* HyTrackerGradient.swift in Sources */,
+				E0EEF3C72BA77AE900F2CE49 /* AuthServiceError.swift in Sources */,
 				E03E941B2B797CED00FF01D0 /* SheetDoneLabel.swift in Sources */,
 				E03E93F72B78105900FF01D0 /* WelcomeView.swift in Sources */,
 				E03E94052B79032100FF01D0 /* OnboardingView.swift in Sources */,

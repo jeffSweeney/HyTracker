@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 final class AuthService {
     static let shared = AuthService()
@@ -24,9 +25,12 @@ final class AuthService {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             try await UserService.shared.fetchCurrentUser()
             self.userSession = result.user
-        } catch {
-            // TODO: Properly handle/delegate error message
-            print("DEBUG: Sign in error: \(error.localizedDescription)")
+        } catch let error as NSError {
+            let authError = handleSignInError(error: error)
+            
+            // Unset any auth that was set
+            signOut()
+            throw authError
         }
     }
     
@@ -45,5 +49,22 @@ final class AuthService {
         try? Auth.auth().signOut()
         self.userSession = nil
         UserService.shared.signOut()
+    }
+}
+
+extension AuthService {
+    private func handleSignInError(error: NSError) -> AuthServiceError {
+        if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
+            switch errorCode {
+            case .invalidEmail:
+                return .invalidEmailFormat
+            case .invalidCredential:
+                return .invalidCredentials
+            default:
+                return .generic
+            }
+        } else {
+            return .generic
+        }
     }
 }
