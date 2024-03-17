@@ -14,6 +14,8 @@ class LoginViewModel: ObservableObject {
     @Published var loginFormComplete: Bool = false
     @Published var isLoading: Bool = false
     @Published var showingAlert: Bool = false
+    @Published var showingForgotPasswordSheet = false
+    
     var alertMessage: String = ""
     
     private func completedField() {

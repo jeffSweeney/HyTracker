@@ -50,6 +50,10 @@ final class AuthService {
         self.userSession = nil
         UserService.shared.signOut()
     }
+    
+    func forgotPassword() async throws {
+        
+    }
 }
 
 extension AuthService {

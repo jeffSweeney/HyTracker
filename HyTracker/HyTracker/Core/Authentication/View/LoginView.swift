@@ -29,6 +29,17 @@ struct LoginView: View {
                                 isLoading: $viewModel.isLoading)
             })
             .disabled(!viewModel.loginFormComplete || viewModel.isLoading)
+            
+            
+            Button(action: {
+                viewModel.showingForgotPasswordSheet = true
+            }, label: {
+                Text("Forgot Password?")
+                    .font(.callout)
+                    .foregroundStyle(.black)
+                    .underline()
+                    .padding(.vertical)
+            })
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -43,7 +54,9 @@ struct LoginView: View {
             Text(viewModel.alertMessage)
                 .font(.subheadline)
         }
-
+        .sheet(isPresented: $viewModel.showingForgotPasswordSheet, content: {
+            ForgotPasswordSheet()
+        })
     }
 }
 
