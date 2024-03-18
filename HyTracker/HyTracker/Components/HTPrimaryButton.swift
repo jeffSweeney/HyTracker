@@ -51,6 +51,7 @@ enum Screen {
     case inOffice
     case login
     case profile
+    case resetPassword
     case signup
     case trackDays
     
@@ -63,6 +64,7 @@ enum Screen {
         case .inOffice: "In-Office" // Split style - ALL CAPS not preferred
         case .login: "LOG IN"
         case .profile: "EDIT REQUIREMENTS"
+        case .resetPassword: "RESET PASSWORD"
         case .signup: "SIGN UP"
         case .trackDays: "TRACK UPDATES" // TODO: Probably remove this one?
         }

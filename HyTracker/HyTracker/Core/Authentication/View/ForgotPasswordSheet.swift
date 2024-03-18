@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ForgotPasswordSheet: View {
     @Environment(\.dismiss) var dismiss
-    @State var email: String = ""
+    @StateObject private var viewModel = ForgotPasswordViewModel()
     
     var body: some View {
         VStack(spacing: 24) {
@@ -32,19 +32,38 @@ struct ForgotPasswordSheet: View {
                 .padding(.horizontal)
                 .padding(.bottom)
             
-            AuthenticationTFComponent(component: .email, captureInput: $email)
+            AuthenticationTFComponent(component: .email, captureInput: $viewModel.email)
                 .padding(.horizontal)
             
             Button(action: {
-                dismiss()
+                Task { await viewModel.resetPasswordRequest() }
             }, label: {
-                HTPrimaryButton(screen: .done, isActionable: true)
-                    .padding(.vertical)
+                HTPrimaryButton(screen: .resetPassword,
+                                isActionable: viewModel.isValidEmail,
+                                isLoading: $viewModel.isLoading)
+                .padding(.vertical)
             })
+            .disabled(!viewModel.isValidEmail)
         }
         .fontDesign(.serif)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .modifier(HyTrackerGradient())
+        .alert(viewModel.alert.title, isPresented: $viewModel.showingAlert) {
+            Button("Got it!") {
+                viewModel.showingAlert = false
+                
+                switch viewModel.alert {
+                case .success:
+                    dismiss()
+                case .failure, .generic:
+                    viewModel.alert = .generic
+                }
+            }
+        } message: {
+            Text(viewModel.alert.message)
+                .font(.subheadline)
+        }
+        
     }
 }
 

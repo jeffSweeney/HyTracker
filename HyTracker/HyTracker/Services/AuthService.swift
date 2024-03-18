@@ -51,8 +51,8 @@ final class AuthService {
         UserService.shared.signOut()
     }
     
-    func forgotPassword() async throws {
-        
+    func resetPassword(for email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 }
 

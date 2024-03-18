@@ -60,6 +60,7 @@ final class OnboardingViewModel: ObservableObject {
     }
     
     // MARK: - Complete Onboarding
+    @MainActor
     func completeOnboarding() async throws {
         guard answeredAllOnboarding, let date = startDate, !eligibleWorkdays.isEmpty, let daysCount = requiredDaysCount else {
             return

@@ -86,6 +86,7 @@
 		E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */; };
 		E0EEF3C72BA77AE900F2CE49 /* AuthServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C62BA77AE900F2CE49 /* AuthServiceError.swift */; };
 		E0EEF3CA2BA7A14800F2CE49 /* ForgotPasswordSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C92BA7A14800F2CE49 /* ForgotPasswordSheet.swift */; };
+		E0FB61E82BA8EE010094B200 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB61E72BA8EE010094B200 /* ForgotPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,7 @@
 		E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAlert.swift; sourceTree = "<group>"; };
 		E0EEF3C62BA77AE900F2CE49 /* AuthServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceError.swift; sourceTree = "<group>"; };
 		E0EEF3C92BA7A14800F2CE49 /* ForgotPasswordSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordSheet.swift; sourceTree = "<group>"; };
+		E0FB61E72BA8EE010094B200 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 		E03E93F52B78104400FF01D0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E0FB61E72BA8EE010094B200 /* ForgotPasswordViewModel.swift */,
 				E03E94292B81812C00FF01D0 /* LoginViewModel.swift */,
 				E03E942B2B81813F00FF01D0 /* SignupViewModel.swift */,
 			);
@@ -630,6 +633,7 @@
 				E03E94192B797A4500FF01D0 /* WeeklyRequirementsSheet.swift in Sources */,
 				E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */,
 				E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */,
+				E0FB61E82BA8EE010094B200 /* ForgotPasswordViewModel.swift in Sources */,
 				E03E94032B7856FE00FF01D0 /* AuthenticationTFComponent.swift in Sources */,
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */,
