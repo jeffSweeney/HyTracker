@@ -11,9 +11,10 @@ struct GenerateReportView: View {
     @StateObject var viewModel: GenerateReportViewModel
     @State private var showingReport = false
     
+    // TODO: Old iOS 16 bug - remove
     // Managing button eligibility state due to SwiftUI DatePicker bug
     // Bug: If you tap out of DatePicker (dismiss it) and hit the primary button, which presents a sheet, primary will no longer work due to "already presenting sheet (picker)" error.
-    @State private var primaryDisabled = false
+//    @State private var primaryDisabled = false
     
     init(user: User) {
         _viewModel = StateObject(wrappedValue: GenerateReportViewModel(user: user))
@@ -36,13 +37,21 @@ struct GenerateReportView: View {
                     Text("Start Range:")
                         .font(.headline)
                 }
-                .onTapGesture { primaryDisabled = true }
+                // TODO: Old iOS 16 bug - remove
+//                .onTapGesture {
+//                    print("DEBUG: Tapped Start Report Date")
+//                    primaryDisabled = true
+//                }
                 
                 DatePicker(selection: $viewModel.reportEndDate, in: viewModel.reportEndRange, displayedComponents: .date) {
                     Text("End Range:")
                         .font(.headline)
                 }
-                .onTapGesture { primaryDisabled = true }
+                // TODO: Old iOS 16 bug - remove
+//                .onTapGesture {
+//                    print("DEBUG: Tapped Start Report Date")
+//                    primaryDisabled = true
+//                }
             }
             .padding()
             .padding(.horizontal, 24)
@@ -53,7 +62,7 @@ struct GenerateReportView: View {
             }, label: {
                 HTPrimaryButton(screen: .generateReport, isActionable: true)
             })
-            .disabled(primaryDisabled)
+//            .disabled(primaryDisabled) // TODO: Old iOS 16 bug - remove
             .padding(.vertical, 40)
         }
         .fontDesign(.serif)
@@ -62,9 +71,10 @@ struct GenerateReportView: View {
         .sheet(isPresented: $showingReport) {
             ReportView(viewModel: viewModel)
         }
-        .onTapGesture {
-            primaryDisabled = false
-        }
+        // TODO: Old iOS 16 bug - remove
+//        .onTapGesture {
+//            primaryDisabled = false
+//        }
     }
 }
 
