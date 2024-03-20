@@ -67,6 +67,8 @@ final class OnboardingViewModel: ObservableObject {
         }
         
         isLoading = true
-        try await UserService.shared.completeOnboarding(startDate: date, eligibleDays: eligibleWorkdays, weeklyRequirementTotal: daysCount)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            Task { try await UserService.shared.completeOnboarding(startDate: date, eligibleDays: self.eligibleWorkdays, weeklyRequirementTotal: daysCount) }
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 import Firebase
 import FirebaseFirestoreSwift
+import SwiftUI
 
 final class UserService: ObservableObject {
     static let shared = UserService()
@@ -25,7 +26,10 @@ final class UserService: ObservableObject {
         
         let snapshot = try await Firestore.firestore().collection(User.collectionName).document(uid).getDocument()
         let user = try snapshot.data(as: User.self)
-        self.currentUser = user
+        
+        withAnimation(.easeInOut(duration: 0.5)) {
+            self.currentUser = user
+        }
     }
     
     /// `createUser`

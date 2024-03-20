@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import SwiftUI
 
 final class AuthService {
     static let shared = AuthService()
@@ -24,7 +25,10 @@ final class AuthService {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             try await UserService.shared.fetchCurrentUser()
-            self.userSession = result.user
+            
+            withAnimation(.easeInOut(duration: 0.5)) {
+                self.userSession = result.user
+            }
         } catch let error as NSError {
             let authError = handleSignInError(error: error)
             
