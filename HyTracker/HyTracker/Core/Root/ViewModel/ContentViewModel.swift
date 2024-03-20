@@ -13,6 +13,8 @@ class ContentViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
+    @Published var showingLaunchScreen = true
+    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {

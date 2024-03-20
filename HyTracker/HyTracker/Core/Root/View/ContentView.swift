@@ -11,16 +11,20 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     
     var body: some View {
-        if viewModel.userSession != nil {
-            if let user = viewModel.currentUser {
-                if user.hasOnboarded {
-                    MainTabView(user: user)
-                } else {
-                    OnboardingView()
-                }
-            }
+        if viewModel.showingLaunchScreen {
+            LaunchScreen(viewModel: viewModel)
         } else {
-            WelcomeView()
+            if viewModel.userSession != nil {
+                if let user = viewModel.currentUser {
+                    if user.hasOnboarded {
+                        MainTabView(user: user)
+                    } else {
+                        OnboardingView()
+                    }
+                }
+            } else {
+                WelcomeView()
+            }
         }
     }
 }

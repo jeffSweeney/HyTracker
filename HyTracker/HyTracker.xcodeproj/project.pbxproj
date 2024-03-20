@@ -81,6 +81,7 @@
 		E0DAE5B02B9D37C100424E3E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E0DAE5AF2B9D37C100424E3E /* FirebaseStorage */; };
 		E0DAE5B22B9D37C100424E3E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E0DAE5B12B9D37C100424E3E /* FirebaseStorageCombine-Community */; };
 		E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */; };
+		E0E3A3882BAB72020097ED92 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3A3872BAB72020097ED92 /* LaunchScreen.swift */; };
 		E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3BD2B9E451000F2CE49 /* Report.swift */; };
 		E0EEF3C32B9E897700F2CE49 /* TrackUpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */; };
 		E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */; };
@@ -133,6 +134,7 @@
 		E0C21CBC2B894398007E542E /* RequirementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementStack.swift; sourceTree = "<group>"; };
 		E0C21CC02B8C202D007E542E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		E0DCB40D2B97DA6900E0DC5D /* SimpleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
+		E0E3A3872BAB72020097ED92 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		E0EEF3BD2B9E451000F2CE49 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		E0EEF3C22B9E897700F2CE49 /* TrackUpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackUpdateType.swift; sourceTree = "<group>"; };
 		E0EEF3C42B9FBB7600F2CE49 /* TrackAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAlert.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				E03E93E02B7808C700FF01D0 /* ContentView.swift */,
+				E0E3A3872BAB72020097ED92 /* LaunchScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
+				E0E3A3882BAB72020097ED92 /* LaunchScreen.swift in Sources */,
 				E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */,
 				E0EEF3BE2B9E451000F2CE49 /* Report.swift in Sources */,
 				E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */,
@@ -811,6 +815,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = HyTrackerSplashScreen.swift;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
@@ -841,6 +846,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = HyTrackerSplashScreen.swift;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
