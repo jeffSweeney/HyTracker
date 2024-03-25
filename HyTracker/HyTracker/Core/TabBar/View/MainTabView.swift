@@ -32,6 +32,10 @@ struct MainTabView: View {
                 }
         }
         .tint(Color.hyTrackerBlue)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            // Keeps the date fresh when coming into foreground
+            MainTabViewModel.shared.today = Date.today
+        }
     }
 }
 
