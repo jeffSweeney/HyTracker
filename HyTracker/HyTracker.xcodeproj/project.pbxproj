@@ -382,10 +382,10 @@
 		E03E940E2B7925CF00FF01D0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
-				E0C21CB22B87C411007E542E /* User+MockData.swift */,
 				E0C21CB62B87DE19007E542E /* Color+HyTracker.swift */,
+				E03E940F2B7925F500FF01D0 /* Date+HyTracker.swift */,
 				E0C21CB82B8910BB007E542E /* Set+HyTracker.swift */,
+				E0C21CB22B87C411007E542E /* User+MockData.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
