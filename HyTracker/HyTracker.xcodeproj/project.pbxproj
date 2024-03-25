@@ -28,7 +28,7 @@
 		E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */; };
 		E03E94202B81744F00FF01D0 /* HTLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E941F2B81744F00FF01D0 /* HTLogoView.swift */; };
 		E03E94262B8177CB00FF01D0 /* WelcomeDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */; };
-		E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94272B81791E00FF01D0 /* HTPrimaryButton.swift */; };
+		E03E94282B81791E00FF01D0 /* HTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94272B81791E00FF01D0 /* HTButton.swift */; };
 		E03E942A2B81812C00FF01D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94292B81812C00FF01D0 /* LoginViewModel.swift */; };
 		E03E942C2B81813F00FF01D0 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E942B2B81813F00FF01D0 /* SignupViewModel.swift */; };
 		E03E94692B82589000FF01D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94682B82589000FF01D0 /* AuthService.swift */; };
@@ -113,7 +113,7 @@
 		E03E941C2B814FB000FF01D0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E03E941F2B81744F00FF01D0 /* HTLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTLogoView.swift; sourceTree = "<group>"; };
 		E03E94252B8177CB00FF01D0 /* WelcomeDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDismissModifier.swift; sourceTree = "<group>"; };
-		E03E94272B81791E00FF01D0 /* HTPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTPrimaryButton.swift; sourceTree = "<group>"; };
+		E03E94272B81791E00FF01D0 /* HTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTButton.swift; sourceTree = "<group>"; };
 		E03E94292B81812C00FF01D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E03E942B2B81813F00FF01D0 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		E03E94682B82589000FF01D0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -403,8 +403,8 @@
 		E03E941E2B81743600FF01D0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E03E94272B81791E00FF01D0 /* HTButton.swift */,
 				E03E941F2B81744F00FF01D0 /* HTLogoView.swift */,
-				E03E94272B81791E00FF01D0 /* HTPrimaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -667,7 +667,7 @@
 				E062F2572B9D0CE100885AF3 /* TrackDaysViewModel.swift in Sources */,
 				E0EEF3CA2BA7A14800F2CE49 /* ForgotPasswordSheet.swift in Sources */,
 				E03E93FE2B782D4300FF01D0 /* LoginView.swift in Sources */,
-				E03E94282B81791E00FF01D0 /* HTPrimaryButton.swift in Sources */,
+				E03E94282B81791E00FF01D0 /* HTButton.swift in Sources */,
 				E0C21CB32B87C411007E542E /* User+MockData.swift in Sources */,
 				E0C21CA62B87C31C007E542E /* GenerateReportView.swift in Sources */,
 				E0DCB40E2B97DA6900E0DC5D /* SimpleDate.swift in Sources */,

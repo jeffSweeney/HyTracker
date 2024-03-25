@@ -38,7 +38,7 @@ struct ForgotPasswordSheet: View {
             Button(action: {
                 Task { await viewModel.resetPasswordRequest() }
             }, label: {
-                HTPrimaryButton(context: .resetPassword,
+                HTButton(context: .resetPassword,
                                 isActionable: viewModel.isValidEmail,
                                 isLoading: $viewModel.isLoading)
                 .padding(.vertical)

@@ -1,5 +1,5 @@
 //
-//  HTPrimaryButton.swift
+//  HTButton.swift
 //  HyTracker
 //
 //  Created by Jeffrey Sweeney on 2/17/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HTPrimaryButton: View {
+struct HTButton: View {
     let context: ButtonContext
     let isActionable: Bool
     let size: ButtonSize
@@ -84,5 +84,5 @@ enum ButtonSize {
 }
 
 #Preview {
-    HTPrimaryButton(context: .login, isActionable: true)
+    HTButton(context: .login, isActionable: true)
 }

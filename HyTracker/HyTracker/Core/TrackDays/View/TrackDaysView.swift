@@ -37,13 +37,13 @@ struct TrackDaysView: View {
                             Button(action: {
                                 Task { try await viewModel.uploadToday(as: .inOffice) }
                             }, label: {
-                                HTPrimaryButton(context: .inOffice, isActionable: true, size: .split)
+                                HTButton(context: .inOffice, isActionable: true, size: .split)
                             })
                             
                             Button(action: {
                                 Task { try await viewModel.uploadToday(as: .exempt) }
                             }, label: {
-                                HTPrimaryButton(context: .exempt, isActionable: true, size: .split)
+                                HTButton(context: .exempt, isActionable: true, size: .split)
                             })
                         }
                     }
@@ -80,13 +80,13 @@ struct TrackDaysView: View {
                             NavigationLink {
                                 BulkUpdatesView(context: .inOffice, viewModel: viewModel)
                             } label: {
-                                HTPrimaryButton(context: .inOffice, isActionable: true, size: .split)
+                                HTButton(context: .inOffice, isActionable: true, size: .split)
                             }
                             
                             NavigationLink {
                                 BulkUpdatesView(context: .exempt, viewModel: viewModel)
                             } label: {
-                                HTPrimaryButton(context: .exempt, isActionable: true, size: .split)
+                                HTButton(context: .exempt, isActionable: true, size: .split)
                             }
                         }
                     }

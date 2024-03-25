@@ -60,7 +60,7 @@ struct GenerateReportView: View {
             Button(action: {
                 showingReport = true
             }, label: {
-                HTPrimaryButton(context: .generateReport, isActionable: true)
+                HTButton(context: .generateReport, isActionable: true)
             })
 //            .disabled(primaryDisabled) // TODO: Old iOS 16 bug - remove
             .padding(.vertical, 40)

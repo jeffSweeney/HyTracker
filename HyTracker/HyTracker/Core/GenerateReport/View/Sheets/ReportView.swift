@@ -74,7 +74,7 @@ struct ReportView: View {
                 Button(action: {
                     dismiss()
                 }, label: {
-                    HTPrimaryButton(context: .done, isActionable: true)
+                    HTButton(context: .done, isActionable: true)
                 })
                 .padding(.vertical)
             }
