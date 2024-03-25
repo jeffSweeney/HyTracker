@@ -26,7 +26,7 @@ struct SignupView: View {
             Button(action: {
                 Task { try await viewModel.signupTapped() }
             }, label: {
-                HTPrimaryButton(screen: .signup,
+                HTPrimaryButton(context: .signup,
                                 isActionable: viewModel.signupFormComplete,
                                 isLoading: $viewModel.isLoading)
             })

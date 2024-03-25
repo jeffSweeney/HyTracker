@@ -65,7 +65,7 @@ struct OnboardingView: View {
             Button(action: {
                 Task { try await viewModel.completeOnboarding() }
             }, label: {
-                HTPrimaryButton(screen: .getStarted, 
+                HTPrimaryButton(context: .getStarted, 
                                 isActionable: viewModel.answeredAllOnboarding,
                                 isLoading: $viewModel.isLoading)
             })

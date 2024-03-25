@@ -42,7 +42,7 @@ struct ProfileView: View {
                 Button(action: {
                     print("DEBUG: Tapped EDIT REQUIREMENTS")
                 }, label: {
-                    HTPrimaryButton(screen: .profile, isActionable: true)
+                    HTPrimaryButton(context: .profile, isActionable: true)
                 })
                 .padding(.top, 40)
             }

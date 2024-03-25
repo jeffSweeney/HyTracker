@@ -24,7 +24,7 @@ struct LoginView: View {
             Button(action: {
                 Task { try await viewModel.loginTapped() }
             }, label: {
-                HTPrimaryButton(screen: .login,
+                HTPrimaryButton(context: .login,
                                 isActionable: viewModel.loginFormComplete,
                                 isLoading: $viewModel.isLoading)
             })

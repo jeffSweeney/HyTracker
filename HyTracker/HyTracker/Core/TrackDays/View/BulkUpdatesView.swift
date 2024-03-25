@@ -105,7 +105,7 @@ struct BulkUpdatesView: View {
                 
                 dismiss()
             } label: {
-                HTPrimaryButton(screen: .trackDays, isActionable: viewModel.madeBulkTrackUpdates)
+                HTPrimaryButton(context: .trackDays, isActionable: viewModel.madeBulkTrackUpdates)
             }
             .disabled(!viewModel.madeBulkTrackUpdates)
 

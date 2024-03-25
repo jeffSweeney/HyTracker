@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HTPrimaryButton: View {
-    let screen: Screen
+    let context: ButtonContext
     let isActionable: Bool
     let size: ButtonSize
     @Binding var isLoading: Bool
     
-    init(screen: Screen, isActionable: Bool, size: ButtonSize = .full, isLoading: Binding<Bool>? = nil) {
-        self.screen = screen
+    init(context: ButtonContext, isActionable: Bool, size: ButtonSize = .full, isLoading: Binding<Bool>? = nil) {
+        self.context = context
         self.isActionable = isActionable
         self.size = size
         self._isLoading = isLoading ?? .constant(false)
@@ -27,7 +27,7 @@ struct HTPrimaryButton: View {
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(1.25)
             } else {
-                Text(screen.label)
+                Text(context.label)
             }
         }
         .font(.headline)
@@ -43,7 +43,7 @@ struct HTPrimaryButton: View {
     }
 }
 
-enum Screen {
+enum ButtonContext {
     case done
     case exempt
     case generateReport
@@ -66,7 +66,7 @@ enum Screen {
         case .profile: "EDIT REQUIREMENTS"
         case .resetPassword: "RESET PASSWORD"
         case .signup: "SIGN UP"
-        case .trackDays: "TRACK UPDATES" // TODO: Probably remove this one?
+        case .trackDays: "TRACK UPDATES"
         }
     }
 }
@@ -84,5 +84,5 @@ enum ButtonSize {
 }
 
 #Preview {
-    HTPrimaryButton(screen: .login, isActionable: true)
+    HTPrimaryButton(context: .login, isActionable: true)
 }
