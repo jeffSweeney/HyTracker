@@ -35,6 +35,7 @@
 		E03E946E2B82642A00FF01D0 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */; };
 		E03E94702B826A4500FF01D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E946F2B826A4500FF01D0 /* User.swift */; };
 		E03E94722B86400900FF01D0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E94712B86400900FF01D0 /* UserService.swift */; };
+		E06140AE2BB2008F00C0E6C5 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06140AD2BB2008F00C0E6C5 /* MainTabViewModel.swift */; };
 		E062F2532B9CEA4F00885AF3 /* GenerateReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062F2522B9CEA4F00885AF3 /* GenerateReportViewModel.swift */; };
 		E062F2572B9D0CE100885AF3 /* TrackDaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062F2562B9D0CE100885AF3 /* TrackDaysViewModel.swift */; };
 		E062F2592B9D32DC00885AF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E062F2582B9D32DC00885AF3 /* GoogleService-Info.plist */; };
@@ -120,6 +121,7 @@
 		E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E03E946F2B826A4500FF01D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E03E94712B86400900FF01D0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E06140AD2BB2008F00C0E6C5 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E062F2522B9CEA4F00885AF3 /* GenerateReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportViewModel.swift; sourceTree = "<group>"; };
 		E062F2562B9D0CE100885AF3 /* TrackDaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDaysViewModel.swift; sourceTree = "<group>"; };
 		E062F2582B9D32DC00885AF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -280,7 +282,8 @@
 		E03E93F12B78094200FF01D0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				E0C21CA02B87C2C6007E542E /* MainTabView.swift */,
+				E06140AC2BB2007900C0E6C5 /* View */,
+				E06140AB2BB2007200C0E6C5 /* ViewModel */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -424,6 +427,22 @@
 				E03E946D2B82642A00FF01D0 /* ContentViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E06140AB2BB2007200C0E6C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E06140AD2BB2008F00C0E6C5 /* MainTabViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E06140AC2BB2007900C0E6C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0C21CA02B87C2C6007E542E /* MainTabView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E062F24E2B9CE8CE00885AF3 /* ViewModel */ = {
@@ -641,6 +660,7 @@
 				E03E941D2B814FB000FF01D0 /* OnboardingViewModel.swift in Sources */,
 				E0EEF3C52B9FBB7600F2CE49 /* TrackAlert.swift in Sources */,
 				E03E940D2B79240200FF01D0 /* InputComponentView.swift in Sources */,
+				E06140AE2BB2008F00C0E6C5 /* MainTabViewModel.swift in Sources */,
 				E03E94002B78457A00FF01D0 /* SignupView.swift in Sources */,
 				E0E3A3882BAB72020097ED92 /* LaunchScreen.swift in Sources */,
 				E0C21CA12B87C2C6007E542E /* MainTabView.swift in Sources */,
