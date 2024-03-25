@@ -97,10 +97,6 @@ struct TrackDaysView: View {
             .fontDesign(.serif)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(HyTrackerGradient())
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                // Keeps the date fresh when coming into foreground
-                viewModel.today = Date.today
-            }
         }
     }
 }
