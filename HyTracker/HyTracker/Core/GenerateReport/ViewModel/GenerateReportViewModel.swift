@@ -31,6 +31,11 @@ class GenerateReportViewModel: ObservableObject {
             .compactMap{ $0 } // Do not allow nil sets
             .assign(to: \.user, on: self)
             .store(in: &cancellables)
+        
+        MainTabViewModel.shared.$today
+            .map { $0 }
+            .assign(to: \.reportEndDate, on: self)
+            .store(in: &cancellables)
     }
 
     // MARK: - Helpers
