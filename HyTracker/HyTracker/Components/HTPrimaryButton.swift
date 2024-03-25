@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HTPrimaryButton: View {
-    let style: PrimaryStyle
+    let size: ButtonSize
     let screen: Screen
     let isActionable: Bool
     @Binding var isLoading: Bool
     
-    init(screen: Screen, isActionable: Bool, style: PrimaryStyle = .full, isLoading: Binding<Bool>? = nil) {
-        self.style = style
+    init(screen: Screen, isActionable: Bool, size: ButtonSize = .full, isLoading: Binding<Bool>? = nil) {
+        self.size = size
         self.screen = screen
         self.isActionable = isActionable
         self._isLoading = isLoading ?? .constant(false)
@@ -32,7 +32,7 @@ struct HTPrimaryButton: View {
         }
         .font(.headline)
         .foregroundStyle(.black)
-        .frame(width: style.width, height: 40)
+        .frame(width: size.width, height: 40)
         .overlay {
             Capsule()
                 .stroke(lineWidth: 2)
@@ -71,7 +71,7 @@ enum Screen {
     }
 }
 
-enum PrimaryStyle {
+enum ButtonSize {
     case full
     case split
     
