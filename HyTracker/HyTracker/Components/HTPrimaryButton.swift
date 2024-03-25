@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct HTPrimaryButton: View {
-    let size: ButtonSize
     let screen: Screen
     let isActionable: Bool
+    let size: ButtonSize
     @Binding var isLoading: Bool
     
     init(screen: Screen, isActionable: Bool, size: ButtonSize = .full, isLoading: Binding<Bool>? = nil) {
-        self.size = size
         self.screen = screen
         self.isActionable = isActionable
+        self.size = size
         self._isLoading = isLoading ?? .constant(false)
     }
     
